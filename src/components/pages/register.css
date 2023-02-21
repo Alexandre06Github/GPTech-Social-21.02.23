@@ -1,4 +1,5 @@
 .form-control{
+    
     width: 100%;
     padding: 12px;
     border: 1px solid black;
@@ -13,6 +14,9 @@
 }
 
 .container {
+    position: fixed;
+    right: 60vh;
+    top: 2vh;
     /* Ajouter box-sizing */
     box-sizing : border-box;
     border-radius:5px;

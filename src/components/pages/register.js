@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import Navbar from '../navigation/navbar';
 import './register.css';
 
 function Register() {
@@ -17,7 +18,11 @@ function Register() {
 
   return (
     <div>
+    <Navbar/>
+    <div>
+         
       <div className="container">
+        
       <h1>Création de Compte</h1>
         <form action="" className="mx-auto" method="post">
             <div>
@@ -61,9 +66,11 @@ function Register() {
               <button className="button">
                 S'inscrire
               </button>
+             
             </div>
         </form>
       </div>
+    </div>
     </div>
   );
 }
