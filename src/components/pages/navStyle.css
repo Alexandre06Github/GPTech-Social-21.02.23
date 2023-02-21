@@ -1,0 +1,51 @@
+body {
+	background-color: black;
+	color: white;
+}
+.bot {
+	width: 20vw;
+	align-items: center;
+}
+.homeBody {
+	display: flex;
+	justify-content: space-between;
+}
+.nav {
+	display: flex;
+	flex-direction: column;
+}
+.footer {
+	font-size: 0.7em;
+	text-align: center;
+}
+.banner {
+	position: sticky;
+	width: 100vw;
+}
+.title {
+	position: relative;
+	padding: 1vh 0vw 1vh 5vw;
+	color: white;
+	background-color: rgb(10, 140, 131);
+}
+.centerBody {
+	background-color: white;
+	color: black;
+	width: 40vw;
+	height: 50vh;
+	padding-left: 2vw;
+	padding-right: 2vw;
+}
+#fileInput {
+	display: none;
+}
+.logo {
+	width: 50px;
+}
+.go {
+	text-align: center;
+}
+.input {
+	width: 30vw;
+	margin-left: 2vw;
+}

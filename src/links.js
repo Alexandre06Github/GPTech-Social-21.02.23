@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
 	},
 	{
 		path: "/register",
-		element: <register />,
+		element: <Register />,
 		errorElement: <Error />,
 	},
 	{
@@ -38,6 +38,11 @@ export const router = createBrowserRouter([
 	{
 		path: "/footer",
 		element: <Footer />,
+		errorElement: <Error />,
+	},
+	{
+		path: "/searchbar",
+		element: <Searchbar />,
 		errorElement: <Error />,
 	},
 ]);
