@@ -10,8 +10,6 @@ function Perso() {
     <div className="profil">
       <Searchbar />
       <Navbar />
-      
-      
 
       <div className="blocProfil">
         <h2 className="profilTitle">Profil</h2>
