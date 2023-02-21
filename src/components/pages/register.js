@@ -55,7 +55,7 @@ const renderUser = () => {
 
 
 
-  return (
+  {return(
     <div>
         <Searchbar/>
     <Navbar/>
@@ -123,5 +123,5 @@ const renderUser = () => {
 }
 }
 
-export default Register;
 
+export default Register;

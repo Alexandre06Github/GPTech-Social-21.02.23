@@ -5,7 +5,7 @@ import "./navStyle.css";
 import robots1 from "./robots1.png";
 import Searchbar from "../navigation/searchbar";
 
-function Home() {
+async function Home() {
 	//we create a constant to store the selected uploaded file, with a starting value of null
 	const [selectedFile, setSelectedFile] = useState(null);
 	//we create a const to handle the upload (input)
@@ -18,14 +18,31 @@ function Home() {
 	};
 	//we create a new state variable to store the input text
 	const [myInput, setMyInput] = useState([]);
-	//
+	//pulling posts from the api
+	const options = {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: {
+			title: String,
+			content: String,
+		},
+	};
+
+	const response = await fetch(
+		"https://social-network-api.osc-fr1.scalingo.io/gptech-social/posts",
+		options
+	);
+	const data = await response.json();
+
 	//event updating the value of the hook (recording and displaying text entered)
-	function handleTextInputChange(e) {
-		//prevents default refreshing of the page
-		e.preventDefault();
-		//we set the event to be the target value of the input
-		setMyInput(e.target.value);
-	}
+	// function handleTextInputChange(e) {
+	// 	//prevents default refreshing of the page
+	// 	e.preventDefault();
+	// 	//we set the event to be the target value of the input
+	// 	setMyInput(e.target.value);
+	// }
 
 	return (
 		<div className="App">
