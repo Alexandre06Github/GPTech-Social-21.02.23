@@ -15,7 +15,7 @@ code {
 
 .blocProfil {
 	width: 38%;
-	position: fixed;
+	position: absolute;
 	top: 8vh;
 	right: 20vw;
 	border-radius: 8%;
@@ -70,14 +70,14 @@ code {
 /* NAVBAR */
 .navbar {
 	width: 25%;
-	height: 94vh;
-	background-color: pink
-	;
+	height: 80%;
+	background-color: pink;
 	text-align: center;
 }
 
 .classDiv {
 	margin-top: 20%;
+	margin-bottom: 3%;
 }
 
 .bloc1 {
@@ -85,14 +85,15 @@ code {
 }
 
 .buttonDeco {
-	margin-top: 140%;
+    margin-top: 140%;
+    margin-bottom: 11%;
 }
 
 /* S IDENTIFIER */
 .blocIdentifiant {
 	border: 5px solid #5adfbc;
 	width: 35%;
-	position: fixed;
+	position: absolute;
 	top: 25vh;
 	right: 18vw;
 	text-align: center;
