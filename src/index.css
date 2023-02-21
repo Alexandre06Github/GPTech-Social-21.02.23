@@ -71,22 +71,37 @@ code {
 .navbar {
 	width: 25%;
 	height: 94vh;
+	background-color: red;
 	text-align: center;
 }
 
-.liste {
-	list-style-type: none;
-	align-items: center;
-	flex-direction: column;
-	height: 200px;
+.classDiv {
+	margin-top: 20%;
 }
 
-.items {
+.bloc1 {
+	padding-top: 6%;
+}
+
+.buttonDeco {
+	margin-top: 140%;
+}
+
+/* S IDENTIFIER */
+.blocIdentifiant {
+	border: 5px solid #5adfbc;
+	width: 35%;
+	position: fixed;
+	top: 25vh;
+	right: 18vw;
 	text-align: center;
-	cursor: pointer;
-	height: 3%;
-	height: 9%;
-	display: grid;
-	align-items: center;
-	color: white;
+	padding-bottom: 2%;
+}
+
+.espace {
+	padding: 2%;
+}
+
+.buttonValider {
+	padding: 4%;
 }
