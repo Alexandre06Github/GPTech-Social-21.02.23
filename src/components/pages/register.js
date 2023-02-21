@@ -4,12 +4,14 @@ import Searchbar from "../navigation/searchbar";
 import "./register.css";
 
 function Register() {
-  const [ firstName, setFistName] = useState([]);
+  const [ firstName, setFistName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
   
 
+ 
+  
   //functions
 
   const handleClick = (e) => {
@@ -51,6 +53,9 @@ function Register() {
       });
   };
   // useEffect
+
+
+
 
   return (
     <div>
@@ -99,7 +104,7 @@ function Register() {
                 type="password"
                 className="form-control"
                 id="Password"
-                value={Password}
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
