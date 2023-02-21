@@ -1,127 +1,119 @@
-
-import { useState, useEffect } from 'react';
-import Navbar from '../navigation/navbar';
-import Searchbar from '../navigation/searchbar';
-import './register.css';
+import { useState, useEffect } from "react";
+import Navbar from "../navigation/navbar";
+import Searchbar from "../navigation/searchbar";
+import "./register.css";
 
 function Register() {
-   
-  const [Nom, setNom] =useState([]);
-  const [Prenom, setPrenom] =useState("");
-  const [Email, setEmail] = useState("");
+  const [ firstName, setFistName] = useState([]);
+  const [lastname, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const [Birthday, setBirthday] = useState ("");
-  const [Tel, setTel] = useState ("")
+  
 
-  //functions 
+  //functions
 
-  const handleShearch = (e) => {
-    setPrenom(e.target.value);
+  const handleClick = (e) => {
+    setLastName(e.target.value);
   };
 
   function value(e) {
     // test pour recup input.value console.log(e.target.value);
-    setPrenom(e.target.value);
-  
+    setLastName(e.target.value);
+  }
 
-  const getNewUsers = async () => {
+  const postNewUsers = async () => {
+
+
     const options = {
       method: "POST",
+      Headers: {
+        "Content-Type": "application/json",
+      },
+      body: {
+        email: "test3@gmail.com",
+        password: "test",
+        firstname: "test",
+        lastname: "test",
+      },
     };
-    
+    console.log("option", options);
+
     //Appel Api
-    let response = await fetch(
-      `https://social-network-api.osc-fr1.scalingo.io/GPTech-Social-21.02.2023`,
+    await fetch(
+      `https://social-network-api.osc-fr1.scalingo.io/GPTech-social/register`,
       options
-    );
-
-     //Transformation fichier .json
-     let data = await response.json();
-
-     console.log("data", data);
- 
-
-  }
- // useEffect
- useEffect(() => {
-  getNewUser("");
-},[] );
-
-
-const renderUser = () => {
-  console.log("cocktail", cocktails);
-  return Nom?.map((item, index) => 
-  
-
-
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        console.log("data", response);
+      });
+  };
+  // useEffect
 
   return (
     <div>
-        <Searchbar/>
-    <Navbar/>
-    <div>
-         
-      <div className="container">
-        
-      <h1>Création de Compte</h1>
-        <form action="" className="mx-auto" method="post">
+      <Searchbar />
+      <Navbar />
+      <div>
+        <div className="container">
+          <h1>Création de Compte</h1>
+          <form action="" className="mx-auto" method="post">
             <div>
-                <label htmlFor="">Nom</label>
-                <input type="text" className="form-control"
-                id= "Nom" value={Nom}
-                onChange= {(e) => setNom (e.target.value)}
-                required />
-                
+              <label htmlFor="">Nom</label>
+              <input
+                type="text"
+                className="form-control"
+                id="Nom"
+                value={firstName}
+                onChange={(e) => setFistName(e.target.value)}
+                required
+              />
             </div>
             <div>
-                <label htmlFor="">Prenom</label>
-                <input type="text" className="form-control"
-                id= "Prenom" value={Prenom}
-                onChange= {(e) => setPrenom (e.target.value)}
-                required />
+              <label htmlFor="">Prenom</label>
+              <input
+                type="text"
+                className="form-control"
+                id="Prenom"
+                value={lastname}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+              />
             </div>
             <div>
-                <label htmlFor="">Mail</label>
-                <input type="email" className="form-control"
-                 id= "Email" value={Email}
-                 onChange= {(e) => setEmail (e.target.value)}
-                 required />
+              <label htmlFor="">Mail</label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
             <div>
-                <label htmlFor="">Mot de Passe</label>
-                <input type="password" className="form-control"
-                 id= "Password" value={Password}
-                 onChange= {(e) => setPassword (e.target.value)}
-                 required />
+              <label htmlFor="">Mot de Passe</label>
+              <input
+                type="password"
+                className="form-control"
+                id="Password"
+                value={Password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </div>
             <div>
-                <label htmlFor="">Date de naissance</label>
-                <input type="text" className="form-control"
-                 id= "Birthday" value={Birthday}
-                 onChange= {(e) => setBirthday (e.target.value)}
-                 required />
-            </div>
-            <div>
-                <label htmlFor="">Telephone</label>
-                <input type="text" className="form-control"
-                id= "Telephone" value={Tel}
-                onChange= {(e) => setTel (e.target.value)}
-                required 
-                />
-            </div>
-            <div>
-              <button className="button">
+              <button onClick={postNewUsers} className="button">
                 S'inscrire
               </button>
-             
             </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
     </div>
   );
 }
-}
 
 export default Register;
-
