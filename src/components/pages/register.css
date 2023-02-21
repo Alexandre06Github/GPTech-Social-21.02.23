@@ -14,9 +14,10 @@
 }
 
 .container {
-    position: fixed;
-    right: 60vh;
-    top: 2vh;
+    position: relative;
+    left: 20vh;
+    bottom: 90vh;
+   
     /* Ajouter box-sizing */
     box-sizing : border-box;
     border-radius:5px;

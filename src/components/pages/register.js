@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import Navbar from '../navigation/navbar';
+import Searchbar from '../navigation/searchbar';
 import './register.css';
 
 function Register() {
@@ -18,6 +19,7 @@ function Register() {
 
   return (
     <div>
+        <Searchbar/>
     <Navbar/>
     <div>
          
