@@ -18,16 +18,14 @@ function Home() {
 	};
 	//we create a new state variable to store the input text
 	const [myInput, setMyInput] = useState([]);
+	//
 	//event updating the value of the hook (recording and displaying text entered)
-	const handleTextInputChange = (e) => {
+	function handleTextInputChange(e) {
 		//prevents default refreshing of the page
 		e.preventDefault();
 		//we set the event to be the target value of the input
 		setMyInput(e.target.value);
-	};
-	//we hold the message in a state variable, of which the initial value is message
-	const [updated, setUpdated] = useState("");
-	function handleClick() {}
+	}
 
 	return (
 		<div className="App">
@@ -40,36 +38,40 @@ function Home() {
 				</div>
 				{/* section in the middle, with posts */}
 				<div className="centerBody">
-					{/* upload document/image */}
-					<input
-						type="file"
-						id="fileInput"
-						onChange={handleFileInputChange}
-					/>
-					<a
-						href="#"
-						onClick={handleFileInputClick}
-					>
-						&#x1F916;
-					</a>
-					{/* posting area */}
-					<input
-						type="textarea"
-						placeholder="Chéri dis moi oui"
-						className="input"
-						value={myInput}
-						onSubmit={handleTextInputChange}
-					></input>
+					<form>
+						{/* upload document/image */}
+						<input
+							type="file"
+							id="fileInput"
+							onChange={handleFileInputChange}
+						/>
+						<a
+							href="#"
+							onClick={handleFileInputClick}
+						>
+							&#x1F916;
+						</a>
+						{/* posting area */}
+						<input
+							type="textarea"
+							placeholder="Chéri dis moi oui"
+							className="input"
+							value={myInput}
+							onSubmit={handleTextInputChange}
+						></input>
+					</form>
 					<button
 						type="submit"
 						onSubmit={handleTextInputChange}
+						class="post"
 					>
 						Post
 					</button>
-					<div className="posts">
-						<p>{myInput}</p>
-					</div>
 				</div>
+				<div className="posts">
+					<p>{myInput}</p>
+				</div>
+
 				{/* advert on the right */}
 				<div>
 					<img

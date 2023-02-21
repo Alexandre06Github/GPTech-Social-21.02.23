@@ -31,11 +31,17 @@ body {
 .centerBody {
 	background-color: white;
 	color: black;
-	width: 40vw;
+	width: 50vw;
 	height: 50vh;
 	padding-left: 2vw;
 	padding-right: 2vw;
+	display: flex;
+	align-items: top;
 }
+.post {
+	height: fit-content;
+}
+
 #fileInput {
 	display: none;
 }
