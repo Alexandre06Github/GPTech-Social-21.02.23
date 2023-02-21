@@ -71,23 +71,14 @@ code {
 .navbar {
 	width: 25%;
 	height: 94vh;
-	background-color: red;
+	background-color: #5adfbc;
 	text-align: center;
 }
 
-.liste {
-	list-style-type: none;
-	align-items: center;
-	flex-direction: column;
-	height: 200px;
+.classDiv {
+	margin-top: 20%;
 }
 
-.items {
-	text-align: center;
-	cursor: pointer;
-	height: 3%;
-	height: 9%;
-	display: grid;
-	align-items: center;
-	color: white;
+.bloc1 {
+	padding-top: 6%;
 }
