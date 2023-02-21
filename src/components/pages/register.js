@@ -13,12 +13,12 @@ function Register() {
   //functions
 
   const handleClick = (e) => {
-    setLastName(e.target.value);
+    setFistName(e.target.value);
   };
 
   function value(e) {
     // test pour recup input.value console.log(e.target.value);
-    setLastName(e.target.value);
+    setFistName(e.target.value);
   }
 
   const postNewUsers = async () => {
@@ -52,7 +52,7 @@ function Register() {
   };
   // useEffect
 
-  {return(
+  return (
     <div>
       <Searchbar />
       <Navbar />
@@ -116,8 +116,4 @@ function Register() {
   );
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> bd79b3a4e6365baa1b0b375011279714e779eb32
 export default Register;

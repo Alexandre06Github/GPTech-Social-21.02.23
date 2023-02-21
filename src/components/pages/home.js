@@ -74,12 +74,12 @@ async function Home() {
 							placeholder="Chéri dis moi oui"
 							className="input"
 							value={myInput}
-							onSubmit={handleTextInputChange}
+							// onSubmit={handleTextInputChange}
 						></input>
 					</form>
 					<button
 						type="submit"
-						onSubmit={handleTextInputChange}
+						// onSubmit={handleTextInputChange}
 						class="post"
 					>
 						Post
