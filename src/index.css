@@ -1,13 +1,93 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+/* PERSO */
+
+.blocProfil {
+	width: 38%;
+	position: fixed;
+	top: 8vh;
+	right: 20vw;
+	border-radius: 8%;
+	padding-bottom: 2%;
+	text-align: center;
+}
+
+.formId {
+	text-align: left;
+	display: flex;
+	margin-bottom: inherit;
+	margin-left: 2%;
+}
+
+.formInput {
+	text-align: left;
+	display: flex;
+	margin-bottom: inherit;
+	height: 3vh;
+	width: 93%;
+	margin-left: 2%;
+}
+
+.formInputDescrition {
+	width: 95%;
+	height: 9vh;
+}
+
+.profilTitlePrivate {
+	padding-top: 6%;
+}
+
+.buttonModifProfil {
+	width: 13%;
+	height: 3vh;
+	margin-top: 5%;
+	margin-left: 80%;
+}
+
+/* SEARCHBAR */
+.navSearch {
+	display: flex;
+	background-color: black;
+}
+
+.inputSearch {
+	width: 30%;
+	margin-left: 43%;
+	padding-left: 1%;
+}
+
+/* NAVBAR */
+.navbar {
+	width: 25%;
+	height: 94vh;
+	background-color: red;
+	text-align: center;
+}
+
+.liste {
+	list-style-type: none;
+	align-items: center;
+	flex-direction: column;
+	height: 200px;
+}
+
+.items {
+	text-align: center;
+	cursor: pointer;
+	height: 3%;
+	height: 9%;
+	display: grid;
+	align-items: center;
+	color: white;
 }
