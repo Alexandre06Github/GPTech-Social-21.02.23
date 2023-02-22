@@ -1,6 +1,5 @@
 .bot {
 	width: 20vw;
-	align-items: center;
 	padding-right: 2vw;
 	padding-top: 2vw;
 }
@@ -13,8 +12,9 @@
 	flex-direction: column;
 }
 .footer {
-	font-size: 0.7em;
+	font-size: 0.8em;
 	text-align: center;
+	color: pink;
 }
 .banner {
 	position: static;
@@ -28,12 +28,14 @@
 }
 .centerBody {
 	width: 50vw;
-	height: 50vh;
+	height: 110vh;
 	padding-left: 2vw;
 	padding-right: 2vw;
 	display: flex;
 	flex-direction: column;
 	align-items: top;
+	border-left: 1px solid #5adfbc;
+	border-right: 1px solid #5adfbc;
 }
 .post {
 	height: fit-content;
@@ -43,7 +45,7 @@
 	display: none;
 }
 .logo {
-	width: 50px;
+	width: 8vw;
 }
 .go {
 	text-align: center;
@@ -55,4 +57,16 @@
 .display {
 	border: 1px solid pink;
 	padding-left: 2vw;
+}
+input {
+	border-color: #5adfbc;
+}
+a:-webkit-any-link {
+	text-decoration: none;
+	color: white;
+	text-shadow: 1px 1px 2px black;
+}
+.advert {
+	display: flex;
+	flex-direction: column;
 }

@@ -12,65 +12,60 @@ code {
 		monospace;
 }
 /* PERSO */
-
+.profil {
+	display: flex;
+}
 .blocProfil {
-	width: 38%;
-	position: absolute;
-	top: 8vh;
-	right: 20vw;
-	border-radius: 8%;
-	padding-bottom: 2%;
+	display: flex;
+	flex-direction: column;
+	width: 50vw;
+	height: 110vh;
+	padding-left: 2vw;
+	padding-right: 2vw;
 	text-align: center;
 }
 
 .formId {
 	text-align: left;
-	display: flex;
-	margin-bottom: inherit;
-	margin-left: 2%;
 }
-
-.formInput {
-	text-align: left;
-	display: flex;
-	margin-bottom: inherit;
-	height: 3vh;
-	width: 93%;
-	margin-left: 2%;
-}
-
-.formInputDescrition {
-	width: 95%;
+.formInputDescription {
 	height: 9vh;
 }
 
-.profilTitlePrivate {
-	padding-top: 6%;
-}
-
-.buttonModifProfil {
-	width: 13%;
-	height: 3vh;
-	margin-top: 5%;
-	margin-left: 80%;
+textarea {
+	border-color: #5adfbc;
 }
 
 /* SEARCHBAR */
 .navSearch {
 	display: flex;
 	background-color: #ffc0cb;
+	justify-content: space-between;
+	align-items: center;
 }
-
+.gptech {
+	display: flex;
+	flex-direction: column;
+	text-shadow: 1px 1px 2px black;
+	align-items: center;
+}
+.titre {
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	color: white;
+}
+.sstitre {
+	margin-top: -2vh;
+	color: #5adfbc;
+}
 .inputSearch {
-	width: 30%;
-	margin-left: 43%;
-	padding-left: 1%;
+	width: 20vw;
+	height: fit-content;
 }
 
 /* NAVBAR */
 .navbar {
 	width: 15vw;
-	height: 100vh;
+	height: 110vh;
 	background-color: pink;
 	text-align: center;
 }
@@ -83,12 +78,15 @@ code {
 /* S IDENTIFIER */
 .blocIdentifiant {
 	border: 5px solid #5adfbc;
-	width: 35%;
+	width: 35vw;
 	position: absolute;
 	top: 25vh;
 	right: 18vw;
 	text-align: center;
 	padding-bottom: 2%;
+}
+.middle {
+	display: flex;
 }
 
 .espace {
@@ -104,4 +102,8 @@ button {
 	font-style: normal;
 	padding-top: 2px;
 	padding-bottom: 2px;
+	border-color: #5adfbc;
+	text-decoration: none;
+	color: white;
+	text-shadow: 1px 1px 2px black;
 }

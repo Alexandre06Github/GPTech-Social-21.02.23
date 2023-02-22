@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Navbar from "../navigation/navbar";
 import Footer from "../navigation/footer";
-import "../pages/navStyle.css";
+import "../../Styles/navStyle.css";
 import robots1 from "../../Images/robots1.png";
+import robots5 from "../../Images/robots5.jpg";
 import Searchbar from "../navigation/searchbar";
 
 function Home() {
@@ -79,7 +80,7 @@ function Home() {
 							type="text"
 							value={inputValue}
 							onChange={handleInputChange}
-							placeholder="Chéri dis moi oui"
+							placeholder="Raconter sa vie"
 							className="input"
 						/>{" "}
 						<button
@@ -100,9 +101,14 @@ function Home() {
 				</div>
 
 				{/* advert on the right */}
-				<div>
+				<div className="advert">
 					<img
 						src={robots1}
+						alt="advert"
+						className="bot"
+					></img>
+					<img
+						src={robots5}
 						alt="advert"
 						className="bot"
 					></img>

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-
+import robots2 from "../../Images/robots1.png";
 import Navbar from "../navigation/navbar";
 import Searchbar from "../navigation/searchbar";
+import "../../Styles/index.css";
 import { useNavigate } from "react-router-dom"; // hook pour rediriger vers une page
 
 function Connection() {
@@ -60,30 +61,38 @@ function Connection() {
 		<div className="connection">
 			<Searchbar />
 			<Navbar />
+			<div className="middle">
+				<div className="blocIdentifiant">
+					<h2>Connection</h2>
+					<div className="espace"></div>
+					<h3>Identifiant</h3>
 
-			<div className="blocIdentifiant">
-				<h2>Connection</h2>
-				<div className="espace"></div>
-				<h3>Identifiant</h3>
+					{/* Crée un champ de saisie pour l'email et met à jour l'état de l'email à chaque changement */}
+					<input
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+					></input>
 
-				{/* Crée un champ de saisie pour l'email et met à jour l'état de l'email à chaque changement */}
-				<input
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-				></input>
+					<h3>Mot de passe</h3>
 
-				<h3>Mot de passe</h3>
+					{/* Crée un champ de saisie pour le mot de passe et met à jour l'état du mot de passe à chaque changement */}
+					<input
+						type="password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+					></input>
 
-				{/* Crée un champ de saisie pour le mot de passe et met à jour l'état du mot de passe à chaque changement */}
-				<input
-					type="password"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-				></input>
-
-				<div className="buttonValider">
-					{/* Crée un bouton "Valider" qui déclenche la fonction handleSubmit lorsque l'utilisateur clique dessus */}
-					<button onClick={handleSubmit}>Valider</button>
+					<div className="buttonValider">
+						{/* Crée un bouton "Valider" qui déclenche la fonction handleSubmit lorsque l'utilisateur clique dessus */}
+						<button onClick={handleSubmit}>Valider</button>
+					</div>
+				</div>
+				<div>
+					<img
+						src={robots2}
+						alt="advert"
+						className="bot"
+					></img>
 				</div>
 			</div>
 		</div>

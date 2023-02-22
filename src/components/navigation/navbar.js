@@ -1,7 +1,6 @@
 import React from "react";
-import logo from "../navigation/logo.png";
 import { Link } from "react-router-dom";
-
+import "../../Styles/index.css";
 import Home from "../pages/home"; // lien page d'accueil
 import Register from "../pages/register"; // lien page d'inscription
 

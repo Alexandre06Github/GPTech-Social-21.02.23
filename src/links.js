@@ -8,7 +8,6 @@ import Searchbar from "./components/navigation/searchbar";
 import Connection from "./components/pages/connection";
 import Perso from "./components/pages/perso";
 import Register from "./components/pages/register";
-import ProfilCo from "./components/pages/profilCo";
 
 export const router = createBrowserRouter([
 	{
@@ -19,11 +18,6 @@ export const router = createBrowserRouter([
 	{
 		path: "/connection",
 		element: <Connection />,
-		errorElement: <Error />,
-	},
-	{
-		path: "/profilCo",
-		element: <ProfilCo />,
 		errorElement: <Error />,
 	},
 
