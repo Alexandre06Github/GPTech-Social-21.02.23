@@ -48,7 +48,8 @@ function Home() {
 	// event updating the value of the hook (recording and displaying text entered)
 	function handleTextInputChange(e) {
 		//we set the event to be the target value of the input
-		setMyInput(e.target.value);
+		setMyInput([...myInput, e.target.value]);
+		e.target.value = ""; //this line clears the input
 	}
 	//submitting data from the input
 	function handleSubmit(e) {
@@ -59,6 +60,7 @@ function Home() {
 		//clears the input field after the input is recorded
 		e.target.elements.postInput.value = "";
 	}
+
 	const renderPost = () => {
 		return myInput.map((item, index) => {
 			// where the posts are displayed, from the input

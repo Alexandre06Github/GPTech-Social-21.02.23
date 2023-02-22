@@ -58,7 +58,7 @@ code {
 /* SEARCHBAR */
 .navSearch {
 	display: flex;
-	background-color: black;
+	background-color: #ffc0cb;
 }
 
 .inputSearch {
@@ -85,8 +85,8 @@ code {
 }
 
 .buttonDeco {
-    margin-top: 140%;
-    margin-bottom: 11%;
+	margin-top: 140%;
+	margin-bottom: 11%;
 }
 
 /* S IDENTIFIER */
