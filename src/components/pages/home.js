@@ -67,13 +67,15 @@ function Home() {
 
 				{/* section in the middle, with posts */}
 				<div className="centerBody">
-					<form>
+					{/* triggering the function to be called when the form is submitted */}
+					<form onSubmit={handleSubmit}>
 						{/* upload document/image */}
 						<input
 							type="file"
 							id="fileInput"
 							onChange={handleFileInputChange}
 						/>
+						{/* image holding the upload function */}
 						<a
 							href="#"
 							onClick={handleFileInputClick}
@@ -82,25 +84,24 @@ function Home() {
 						</a>
 						{/* POSTING */}
 						<input
-							type="textarea"
+							type="text"
 							placeholder="Chéri dis moi oui"
 							className="input"
 							value={myInput}
-							onSubmit={handleTextInputChange}
+							onChange={handleTextInputChange}
 						></input>
+						<button
+							type="submit"
+							className="post"
+						>
+							Post
+						</button>
 					</form>
-					<button
-						type="submit"
-						className="post"
-					>
-						Post
-					</button>
+					{/* where the posts are displayed, from the input */}
+					<div className="posts">
+						<p>{myInput}</p>
+					</div>
 				</div>
-				{/* where the posts are displayed, from the input */}
-				<div className="posts">
-					<p>{myInput}</p>
-				</div>
-
 				{/* advert on the right */}
 				<div>
 					<img
