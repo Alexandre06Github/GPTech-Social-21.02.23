@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../navigation/navbar";
 import Footer from "../navigation/footer";
 import "../pages/navStyle.css";
-import robots1 from "./robots1.png";
+import robots1 from "../../Images/robots1.png";
 import Searchbar from "../navigation/searchbar";
 
 function Home() {
@@ -21,6 +21,8 @@ function Home() {
 	//HANDLING POSTS
 	//we create a table to hold the input of the posts
 	const [myInput, setMyInput] = useState([]);
+
+	// GETTING POSTS
 	//pulling posts from the api
 	const listPosts = async () => {
 		const options = {
@@ -28,12 +30,10 @@ function Home() {
 			headers: {
 				//standard http header, tells the server that that the request is in json format
 				"Content-Type": "application/json",
-				// Authorization: "Bearer ACCESS TOKEN" > for private nav,
+				Authorization: "bearer {token}",
 			},
 			//we're sending the content with json
-			body: JSON.stringify({
-				content: String,
-			}),
+			body: JSON.stringify({}),
 		};
 		//using the api to fetch the data
 		let response = await fetch(
@@ -54,7 +54,24 @@ function Home() {
 	function handleSubmit(e) {
 		//prevents default refreshing of the page
 		e.preventDefault();
+		//updates the input to a new array, adding it to previous posts
+		setMyInput([...myInput, e.target.elements.postInput.value]);
+		//clears the input field after the input is recorded
+		e.target.elements.postInput.value = "";
 	}
+	const renderPost = () => {
+		return myInput.map((item, index) => {
+			// where the posts are displayed, from the input
+			return (
+				<div
+					key={index}
+					className="posts"
+				>
+					<p>{item}</p>
+				</div>
+			);
+		});
+	};
 
 	return (
 		<div className="App">
@@ -62,7 +79,6 @@ function Home() {
 			<Searchbar />
 			<div className="homeBody">
 				{/* section on the left */}
-
 				<Navbar />
 
 				{/* section in the middle, with posts */}
@@ -97,11 +113,9 @@ function Home() {
 							Post
 						</button>
 					</form>
-					{/* where the posts are displayed, from the input */}
-					<div className="posts">
-						<p>{myInput}</p>
-					</div>
+					<div className="postText">{renderPost()}</div>
 				</div>
+
 				{/* advert on the right */}
 				<div>
 					<img
