@@ -1,18 +1,19 @@
 import React, { useState} from "react";
+import Footer from "../navigation/footer";
 import Navbar from "../navigation/navbar";
 import Searchbar from "../navigation/searchbar";
 import "./register.css";
 
 function Register() {
-  const [ firstName, setFistName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [ firstName, setFistName] = useState([]);
+  const [lastName, setLastName] = useState([]);
+  const [email, setEmail] = useState([]);
+  const [password, setPassword] = useState([]);
   
   
   //functions
 
-  function handleSubmit() {
+ async function handleSubmit() {
 
 
     const options = {
@@ -24,19 +25,18 @@ function Register() {
         email: email,
         password: password,
         firstname: firstName,
-        lastname: lastName,
+        lastname: lastName
       }),
     };
     console.log("option", options);
 
     //Appel Api
-     fetch(
-      `https://social-network-api.osc-fr1.scalingo.io/GPTech-social/register`,
+      await fetch(
+      `https://social-network-api.osc-fr1.scalingo.io/GPTech-social/register`, 
       options
     )
     .then(response => response.json()) // Récupère la réponse au format JSON
     .then(data => console.log(data)) // Utilise les données renvoyées par l'API
-    .then (data => this.UseState({handleSubmit: data.id}));
      
       
   };
@@ -58,7 +58,7 @@ function Register() {
                 id="Nom"
                 value={firstName}
                 onChange={(e) => setFistName(e.target.value)}
-                required
+              
               />
             </div>
             <div>
@@ -69,7 +69,7 @@ function Register() {
                 id="Prenom"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                required
+               
               />
             </div>
             <div>
@@ -80,7 +80,6 @@ function Register() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
             </div>
             <div>
@@ -91,7 +90,6 @@ function Register() {
                 id="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
               />
             </div>
             <div>
@@ -102,6 +100,7 @@ function Register() {
           </form>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

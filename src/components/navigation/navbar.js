@@ -34,6 +34,10 @@ function Navbar() {
           <Link to="/perso">Profil</Link>
         </div>
 
+        <div className="bloc1">
+          <Link to="/profilCo">ProfilCo</Link>
+        </div>
+
       </div>
       <button className="buttonDeco">Déconnection</button>
     </nav>
