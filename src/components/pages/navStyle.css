@@ -1,6 +1,8 @@
 .bot {
 	width: 20vw;
 	align-items: center;
+	padding-right: 2vw;
+	padding-top: 2vw;
 }
 .homeBody {
 	display: flex;
@@ -49,4 +51,8 @@
 .input {
 	width: 30vw;
 	margin-left: 2vw;
+}
+.display {
+	border: 1px solid pink;
+	padding-left: 2vw;
 }

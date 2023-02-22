@@ -69,8 +69,8 @@ code {
 
 /* NAVBAR */
 .navbar {
-	width: 25%;
-	height: 80%;
+	width: 15vw;
+	height: 100vh;
 	background-color: pink;
 	text-align: center;
 }
@@ -78,15 +78,6 @@ code {
 .classDiv {
 	margin-top: 20%;
 	margin-bottom: 3%;
-}
-
-.bloc1 {
-	padding-top: 6%;
-}
-
-.buttonDeco {
-	margin-top: 140%;
-	margin-bottom: 11%;
 }
 
 /* S IDENTIFIER */
@@ -106,4 +97,11 @@ code {
 
 .buttonValider {
 	padding: 4%;
+}
+button {
+	width: 10vw;
+	background-color: pink;
+	font-style: normal;
+	padding-top: 2px;
+	padding-bottom: 2px;
 }

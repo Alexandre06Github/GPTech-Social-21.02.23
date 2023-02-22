@@ -6,42 +6,48 @@ import Home from "../pages/home"; // lien page d'accueil
 import Register from "../pages/register"; // lien page d'inscription
 
 function Navbar() {
+	return (
+		<nav className="navbar">
+			<div>
+				<button className="bloc1">
+					<Link
+						to="/register"
+						className="bloc1"
+					>
+						Inscription
+					</Link>
+				</button>
+				<div>
+					<button className="bloc1">
+						<Link
+							to="/connection"
+							className="bloc1"
+						>
+							Se connecter
+						</Link>
+					</button>
+				</div>
 
-  return (
+				<div className="classDiv"></div>
 
-    <nav className="navbar">
-      <div>
-        <div className="bloc1">
-          <Link to="/register" className="bloc1">
-            Inscription
-          </Link>
-        </div>
-        <div>
-          <div className="bloc1">
-            <Link to="/connection" className="bloc1">
-              Se connecter
-            </Link>
-          </div>
-        </div>
+				<button className="bloc1">
+					<Link to="/">Accueil</Link>
+				</button>
 
-        <div className="classDiv"></div>
+				<button className="bloc1">
+					<Link to="/perso">Profil</Link>
+				</button>
 
-        <div className="bloc1">
-          <Link to="/">Accueil</Link>
-        </div>
-
-        <div className="bloc1">
-          <Link to="/perso">Profil</Link>
-        </div>
-
-        <div className="bloc1">
-          <Link to="/profilCo">ProfilCo</Link>
-        </div>
-
-      </div>
-      <button className="buttonDeco">Déconnection</button>
-    </nav>
-  );
+				{/* <button className="bloc1">
+					<Link to="/profilCo">Profil</Link>
+				</button> */}
+			</div>
+			<div className="classDiv"></div>
+			<div>
+				<button className="buttonDeco">Déconnection</button>
+			</div>
+		</nav>
+	);
 }
 
 export default Navbar;
