@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Footer from "../navigation/footer";
 import Navbar from "../navigation/navbar";
 import Searchbar from "../navigation/searchbar";
+
 import "./profilCo.css";
 
 function ProfilCo() {
