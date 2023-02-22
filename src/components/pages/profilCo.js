@@ -14,10 +14,16 @@ function ProfilCo() {
         <Navbar />
         <div className="container">
           <h1>Informations profil</h1>
-          <p>je fais un</p>
-        </div>
-        <Footer/>
-      </div>
+        <div className="Profil">
+          <p>Prenom:</p>
+          <p>Nom:</p>
+          <p>email:</p>
+          <p>Age:</p>
+          <p>Occupation:</p>
+          </div>
+          </div>
+</div>
+       
     );
   }
 
