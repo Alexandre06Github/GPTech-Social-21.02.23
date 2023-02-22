@@ -9,14 +9,10 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-
-
   
   //functions
 
   function handleSubmit() {
-
- 
 
 
     const options = {
@@ -38,18 +34,12 @@ function Register() {
       `https://social-network-api.osc-fr1.scalingo.io/GPTech-social/register`,
       options
     )
-      .then((response) => {
-        return response.json();
-      })
-      .then (data => this.setState({postNewUsers: data.id}));
-    
+    .then(response => response.json()) // Récupère la réponse au format JSON
+    .then(data => console.log(data)) // Utilise les données renvoyées par l'API
+    .then (data => this.UseState({handleSubmit: data.id}));
+     
       
   };
-
-
-  // useEffect
-
-
 
 
   return (
