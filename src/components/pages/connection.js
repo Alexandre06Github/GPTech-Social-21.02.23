@@ -1,12 +1,22 @@
 import React, { useState } from "react";
+
 import Navbar from "../navigation/navbar";
 import Searchbar from "../navigation/searchbar";
+import Home from "./home";
+import { useNavigate } from "react-router-dom";     // hook pour rediriger vers une page 
+
 
 function Connection() {
   // Récupère les informations de connexion stockées dans le localstorage, ou une chaîne vide si elles n'existent pas
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
-  const [password, setPassword] = useState(localStorage.getItem("password") || "");
+  const [password, setPassword] = useState(
+    localStorage.getItem("password") || ""
+  );
   const [token, setToken] = useState(localStorage.getItem("token") || "");
+
+
+  const navigate = useNavigate();    // const pour rediriger vers une page
+
 
   // Cette fonction sera appelée lorsque l'utilisateur cliquera sur le bouton "Valider"
   async function handleSubmit() {
@@ -21,8 +31,9 @@ function Connection() {
         password: password,
       }),
     };
-    
-    setToken(localStorage.getItem("token"));   // récupérer la valeur du token stockée dans le localstorage et la mettre à jour dans l'état de la variable token.
+
+
+    setToken(localStorage.getItem("token")); // récupérer la valeur du token stockée dans le localstorage et la mettre à jour dans l'état de la variable token.
 
     try {
       // Envoie une requête fetch avec l'URL de l'API et les options définies
@@ -41,6 +52,12 @@ function Connection() {
       localStorage.setItem("email", email);
       localStorage.setItem("password", password);
       localStorage.setItem("token", data.token);
+
+      // Si la connexion est réussie, naviguer vers la page d'accueil
+      if (data.success = true) {
+     navigate("/");                   // pour rediriger vers la page Home
+      } 
+       
     } catch (error) {
       // Gère les erreurs éventuelles
       console.log(error);
