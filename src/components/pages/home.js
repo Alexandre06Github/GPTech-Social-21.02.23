@@ -20,9 +20,17 @@ function Home() {
 
 	//HANDLING POSTS
 	//we create a table to hold the input of the posts
-	const [myInput, setMyInput] = useState([]);
+	const [inputValue, setInputValue] = useState("");
+	function handleInputChange(event) {
+		setInputValue(event.target.value);
+	}
+	function handleSubmit(event) {
+		event.preventDefault();
+		console.log(inputValue);
+		setInputValue("");
+	}
 
-	// GETTING POSTS
+	// GETTING POSTS - NO TOUCHING
 	//pulling posts from the api
 	const listPosts = async () => {
 		const options = {
@@ -41,41 +49,9 @@ function Home() {
 			options
 		);
 		let data = await response.json();
-		//We're collecting the content of the posts from the response data. The setMyInput updates the value of 'myInput' with the content retrieved from the api
-		setMyInput(data.content);
+		//We're collecting the content of the posts from the response data. The setMyInput updates the value of 'inputValue' with the content retrieved from the api
+		inputValue(data.content);
 	};
-
-	// event updating the value of the hook (recording and displaying text entered)
-
-	// function HandleTextInputChange(e) {
-	// 	//we set the event to be the target value of the input
-	// 	setMyInput([...myInput, e.target.value]);
-	// 	e.target.value = ""; //this line clears the input
-	// }
-
-	//submitting data from the input
-	function HandleSubmit(e) {
-		//prevents default refreshing of the page
-		e.preventDefault();
-		//updates the input to a new array, adding it to previous posts
-		setMyInput([...myInput, e.target.elements.postInput.value]);
-		//clears the input field after the input is recorded
-		e.target.elements.postInput.value = "";
-
-		const renderPost = () => {
-			return myInput.map((item, index) => {
-				// where the posts are displayed, from the input
-				return (
-					<div
-						key={index}
-						className="posts"
-					>
-						<p>{item}</p>
-					</div>
-				);
-			});
-		};
-	}
 
 	return (
 		<div className="App">
@@ -84,40 +60,24 @@ function Home() {
 			<div className="homeBody">
 				{/* section on the left */}
 				<Navbar />
-
-				{/* section in the middle, with posts */}
+				{/* MIDDLE POST  */}
 				<div className="centerBody">
-					{/* triggering the function to be called when the form is submitted */}
-					<form onSubmit={HandleSubmit}>
-						{/* upload document/image */}
-						<input
-							type="file"
-							id="fileInput"
-							onChange={handleFileInputChange}
-						/>
-						{/* image holding the upload function */}
+					<form onSubmit={handleSubmit}>
 						<a
 							href="#"
 							onClick={handleFileInputClick}
 						>
 							&#x1F916;
 						</a>
-						{/* POSTING */}
 						<input
 							type="text"
+							value={inputValue}
+							onChange={handleInputChange}
 							placeholder="Chéri dis moi oui"
 							className="input"
-							value={myInput}
-							onSubmit={renderPost}
-						></input>
-						<button
-							type="submit"
-							className="post"
-						>
-							Post
-						</button>
+						/>
+						<button type="submit">Go</button>
 					</form>
-					<div className="postText">{HandleSubmit()}</div>
 				</div>
 
 				{/* advert on the right */}
