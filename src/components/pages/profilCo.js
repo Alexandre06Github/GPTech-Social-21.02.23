@@ -36,6 +36,7 @@ function ProfilCo() {
       .then((response) => response.json()) // Récupère la réponse au format JSON
       .then((data) => console.log(data)); // Utilise les données renvoyées par l'API
   }
+  
 
   return (
     <div>
