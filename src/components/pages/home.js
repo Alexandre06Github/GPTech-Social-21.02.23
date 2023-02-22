@@ -9,10 +9,6 @@ function Home() {
 	//FILE UPLOAD
 	//we create a constant to store the selected uploaded file, with a starting value of null (no file)
 	const [selectedFile, setSelectedFile] = useState(null);
-	//we create a const to handle the upload (input)
-	const handleFileInputChange = (e) => {
-		setSelectedFile(e.target.files[0]);
-	};
 	//we create a const to handle the file input action
 	const handleFileInputClick = () => {
 		document.getElementById("fileInput").click();
@@ -60,6 +56,7 @@ function Home() {
 			<div className="homeBody">
 				{/* section on the left */}
 				<Navbar />
+
 				{/* MIDDLE POST  */}
 				<div className="centerBody">
 					<form onSubmit={handleSubmit}>
