@@ -2,24 +2,21 @@ import React, { useState } from "react";
 
 import Navbar from "../navigation/navbar";
 import Searchbar from "../navigation/searchbar";
-import Home from "./home";
 import { useNavigate } from "react-router-dom";     // hook pour rediriger vers une page 
 
 
 function Connection() {
+
   // Récupère les informations de connexion stockées dans le localstorage, ou une chaîne vide si elles n'existent pas
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
-  const [password, setPassword] = useState(
-    localStorage.getItem("password") || ""
-  );
+  const [password, setPassword] = useState(localStorage.getItem("password") || "");
   const [token, setToken] = useState(localStorage.getItem("token") || "");
-
-
   const navigate = useNavigate();    // const pour rediriger vers une page
 
 
   // Cette fonction sera appelée lorsque l'utilisateur cliquera sur le bouton "Valider"
   async function handleSubmit() {
+
     // Déclare un objet options pour configurer la requête fetch
     const options = {
       method: "POST",
@@ -31,11 +28,13 @@ function Connection() {
         password: password,
       }),
     };
-
+    
+        setEmail("");     // vider les inputs email et password
+        setPassword("");
 
     setToken(localStorage.getItem("token")); // récupérer la valeur du token stockée dans le localstorage et la mettre à jour dans l'état de la variable token.
 
-    try {
+
       // Envoie une requête fetch avec l'URL de l'API et les options définies
       const response = await fetch(
         `https://social-network-api.osc-fr1.scalingo.io/GPTech-social/login`,
@@ -45,8 +44,7 @@ function Connection() {
       // Récupère la réponse au format JSON
       const data = await response.json();
 
-      // Utilise les données renvoyées par l'API
-      console.log(data);
+      console.log(data);     // Utilise les données renvoyées par l'API
 
       // Stocke les informations de connexion dans le localstorage
       localStorage.setItem("email", email);
@@ -54,15 +52,13 @@ function Connection() {
       localStorage.setItem("token", data.token);
 
       // Si la connexion est réussie, naviguer vers la page d'accueil
-      if (data.success = true) {
-     navigate("/");                   // pour rediriger vers la page Home
-      } 
-       
-    } catch (error) {
-      // Gère les erreurs éventuelles
-      console.log(error);
-    }
+      if (data.success) {
+        navigate("/");
+      } else {
+        alert("Identifiant ou mot de passe incorrect, veuillez réessayer");
+      }
   }
+
 
   return (
     <div className="connection">
