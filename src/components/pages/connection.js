@@ -4,12 +4,12 @@ import Searchbar from "../navigation/searchbar";
 
 function Connection() {
 
-  // Déclare deux états pour stocker l'email et le mot de passe
+  // Déclare 2 variables d'états pour stocker l'email et le mot de passe
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   // Cette fonction sera appelée lorsque l'utilisateur cliquera sur le bouton "Valider"
-  function handleSubmit() {
+  async function handleSubmit() {
 
     // Déclare un objet options pour configurer la requête fetch
     const options = {
@@ -23,11 +23,20 @@ function Connection() {
       })
     };
 
-    // Envoie une requête fetch avec l'URL de l'API et les options définies
-    fetch(`https://social-network-api.osc-fr1.scalingo.io/GPTech-social/login`, options)
-      .then(response => response.json()) // Récupère la réponse au format JSON
-      .then(data => console.log(data)) // Utilise les données renvoyées par l'API
-      .catch(error => console.log(error)); // Gère les erreurs éventuelles
+    try {
+      // Envoie une requête fetch avec l'URL de l'API et les options définies
+      const response = await fetch(`https://social-network-api.osc-fr1.scalingo.io/GPTech-social/login`, options);
+      
+      // Récupère la réponse au format JSON
+      const data = await response.json();
+
+      // Utilise les données renvoyées par l'API
+      console.log(data);
+
+    } catch (error) {
+      // Gère les erreurs éventuelles
+      console.log(error);
+    }
   }
 
   return (
