@@ -7,7 +7,7 @@ import Searchbar from "../navigation/searchbar";
 
 function Home() {
 	//FILE UPLOAD
-	//we create a constant to store the selected uploaded file, with a starting value of null
+	//we create a constant to store the selected uploaded file, with a starting value of null (no file)
 	const [selectedFile, setSelectedFile] = useState(null);
 	//we create a const to handle the upload (input)
 	const handleFileInputChange = (e) => {
@@ -80,19 +80,18 @@ function Home() {
 						>
 							&#x1F916;
 						</a>
-						{/* posting area */}
+						{/* POSTING */}
 						<input
 							type="textarea"
 							placeholder="Chéri dis moi oui"
 							className="input"
-							// value={myInput}
-							// onSubmit={handleTextInputChange}
+							value={myInput}
+							onSubmit={handleTextInputChange}
 						></input>
 					</form>
 					<button
 						type="submit"
-						// onSubmit={handleTextInputChange}
-						class="post"
+						className="post"
 					>
 						Post
 					</button>
