@@ -19,7 +19,7 @@ body {
 	text-align: center;
 }
 .banner {
-	position: sticky;
+	position: static;
 	width: 100vw;
 }
 .title {

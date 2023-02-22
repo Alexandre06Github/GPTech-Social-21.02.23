@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Navbar from "../navigation/navbar";
 import Footer from "../navigation/footer";
-import "./navStyle.css";
+import "../pages/navStyle.css";
 import robots1 from "./robots1.png";
 import Searchbar from "../navigation/searchbar";
 
-async function Home() {
+function Home() {
 	//we create a constant to store the selected uploaded file, with a starting value of null
 	const [selectedFile, setSelectedFile] = useState(null);
 	//we create a const to handle the upload (input)
@@ -16,33 +16,37 @@ async function Home() {
 	const handleFileInputClick = () => {
 		document.getElementById("fileInput").click();
 	};
-	//we create a new state variable to store the input text
+	//we create a table to hold the input of the posts
 	const [myInput, setMyInput] = useState([]);
 	//pulling posts from the api
-	const options = {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: {
-			title: String,
-			content: String,
-		},
+	const listPosts = async () => {
+		const options = {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: {
+				title: String,
+				content: String,
+			},
+		};
+
+		let response = await fetch(
+			"https://social-network-api.osc-fr1.scalingo.io/gptech-social/posts/posts?page=2&limit=10",
+			options
+		);
+		let data = await response.json();
+		//We're collecting the posts
+		setMyInput(data.String);
 	};
 
-	const response = await fetch(
-		"https://social-network-api.osc-fr1.scalingo.io/gptech-social/posts",
-		options
-	);
-	const data = await response.json();
-
-	//event updating the value of the hook (recording and displaying text entered)
-	// function handleTextInputChange(e) {
-	// 	//prevents default refreshing of the page
-	// 	e.preventDefault();
-	// 	//we set the event to be the target value of the input
-	// 	setMyInput(e.target.value);
-	// }
+	// event updating the value of the hook (recording and displaying text entered)
+	function handleTextInputChange(e) {
+		//prevents default refreshing of the page
+		e.preventDefault();
+		//we set the event to be the target value of the input
+		setMyInput(e.target.value);
+	}
 
 	return (
 		<div className="App">
@@ -50,9 +54,9 @@ async function Home() {
 			<Searchbar />
 			<div className="homeBody">
 				{/* section on the left */}
-				<div>
-					<Navbar />
-				</div>
+
+				<Navbar />
+
 				{/* section in the middle, with posts */}
 				<div className="centerBody">
 					<form>
@@ -73,7 +77,7 @@ async function Home() {
 							type="textarea"
 							placeholder="Chéri dis moi oui"
 							className="input"
-							value={myInput}
+							// value={myInput}
 							// onSubmit={handleTextInputChange}
 						></input>
 					</form>
@@ -85,9 +89,7 @@ async function Home() {
 						Post
 					</button>
 				</div>
-				<div className="posts">
-					<p>{myInput}</p>
-				</div>
+				<div className="posts">{/* <p>{myInput}</p> */}</div>
 
 				{/* advert on the right */}
 				<div>
