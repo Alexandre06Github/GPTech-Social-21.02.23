@@ -13,7 +13,7 @@ function Register() {
   
   //functions
 
- async function handleSubmit() {
+ async function handleInput() {
 
 
     const options = {
@@ -93,7 +93,7 @@ function Register() {
               />
             </div>
             <div>
-              <button onClick={handleSubmit} className="button">
+              <button onClick={handleInput} className="button">
                 S'inscrire
               </button>
             </div>
