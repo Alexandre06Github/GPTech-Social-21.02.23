@@ -6,6 +6,7 @@ import robots1 from "./robots1.png";
 import Searchbar from "../navigation/searchbar";
 
 function Home() {
+	//FILE UPLOAD
 	//we create a constant to store the selected uploaded file, with a starting value of null
 	const [selectedFile, setSelectedFile] = useState(null);
 	//we create a const to handle the upload (input)
@@ -16,6 +17,8 @@ function Home() {
 	const handleFileInputClick = () => {
 		document.getElementById("fileInput").click();
 	};
+
+	//HANDLING POSTS
 	//we create a table to hold the input of the posts
 	const [myInput, setMyInput] = useState([]);
 	//pulling posts from the api
@@ -24,28 +27,32 @@ function Home() {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
+				// Authorization: "Bearer ACCESS TOKEN" > for private nav,
 			},
-			body: {
-				title: String,
+			//we're sending the content with json
+			body: JSON.stringify({
 				content: String,
-			},
+			}),
 		};
-
+		//using the api to fetch the data
 		let response = await fetch(
 			"https://social-network-api.osc-fr1.scalingo.io/gptech-social/posts/posts?page=2&limit=10",
 			options
 		);
 		let data = await response.json();
-		//We're collecting the posts
-		setMyInput(data.String);
+		//We're collecting the content of the posts
+		setMyInput(data.content);
 	};
 
 	// event updating the value of the hook (recording and displaying text entered)
 	function handleTextInputChange(e) {
-		//prevents default refreshing of the page
-		e.preventDefault();
 		//we set the event to be the target value of the input
 		setMyInput(e.target.value);
+	}
+	//submitting data from the input
+	function handleSubmit(e) {
+		//prevents default refreshing of the page
+		e.preventDefault();
 	}
 
 	return (
@@ -89,7 +96,10 @@ function Home() {
 						Post
 					</button>
 				</div>
-				<div className="posts">{/* <p>{myInput}</p> */}</div>
+				{/* where the posts are displayed, from the input */}
+				<div className="posts">
+					<p>{myInput}</p>
+				</div>
 
 				{/* advert on the right */}
 				<div>
