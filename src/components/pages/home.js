@@ -46,34 +46,36 @@ function Home() {
 	};
 
 	// event updating the value of the hook (recording and displaying text entered)
-	function handleTextInputChange(e) {
-		//we set the event to be the target value of the input
-		setMyInput([...myInput, e.target.value]);
-		e.target.value = ""; //this line clears the input
-	}
+
+	// function HandleTextInputChange(e) {
+	// 	//we set the event to be the target value of the input
+	// 	setMyInput([...myInput, e.target.value]);
+	// 	e.target.value = ""; //this line clears the input
+	// }
+
 	//submitting data from the input
-	function handleSubmit(e) {
+	function HandleSubmit(e) {
 		//prevents default refreshing of the page
 		e.preventDefault();
 		//updates the input to a new array, adding it to previous posts
 		setMyInput([...myInput, e.target.elements.postInput.value]);
 		//clears the input field after the input is recorded
 		e.target.elements.postInput.value = "";
-	}
 
-	const renderPost = () => {
-		return myInput.map((item, index) => {
-			// where the posts are displayed, from the input
-			return (
-				<div
-					key={index}
-					className="posts"
-				>
-					<p>{item}</p>
-				</div>
-			);
-		});
-	};
+		const renderPost = () => {
+			return myInput.map((item, index) => {
+				// where the posts are displayed, from the input
+				return (
+					<div
+						key={index}
+						className="posts"
+					>
+						<p>{item}</p>
+					</div>
+				);
+			});
+		};
+	}
 
 	return (
 		<div className="App">
@@ -86,7 +88,7 @@ function Home() {
 				{/* section in the middle, with posts */}
 				<div className="centerBody">
 					{/* triggering the function to be called when the form is submitted */}
-					<form onSubmit={handleSubmit}>
+					<form onSubmit={HandleSubmit}>
 						{/* upload document/image */}
 						<input
 							type="file"
@@ -106,7 +108,7 @@ function Home() {
 							placeholder="Chéri dis moi oui"
 							className="input"
 							value={myInput}
-							onChange={handleTextInputChange}
+							onSubmit={renderPost}
 						></input>
 						<button
 							type="submit"
@@ -115,7 +117,7 @@ function Home() {
 							Post
 						</button>
 					</form>
-					<div className="postText">{renderPost()}</div>
+					<div className="postText">{HandleSubmit()}</div>
 				</div>
 
 				{/* advert on the right */}
