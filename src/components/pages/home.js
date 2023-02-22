@@ -26,6 +26,7 @@ function Home() {
 		const options = {
 			method: "GET",
 			headers: {
+				//standard http header, tells the server that that the request is in json format
 				"Content-Type": "application/json",
 				// Authorization: "Bearer ACCESS TOKEN" > for private nav,
 			},
@@ -36,11 +37,11 @@ function Home() {
 		};
 		//using the api to fetch the data
 		let response = await fetch(
-			"https://social-network-api.osc-fr1.scalingo.io/gptech-social/posts/posts?page=2&limit=10",
+			"https://social-network-api.osc-fr1.scalingo.io/gptech-social/posts/posts?page=0&limit=10",
 			options
 		);
 		let data = await response.json();
-		//We're collecting the content of the posts
+		//We're collecting the content of the posts from the response data. The setMyInput updates the value of 'myInput' with the content retrieved from the api
 		setMyInput(data.content);
 	};
 
