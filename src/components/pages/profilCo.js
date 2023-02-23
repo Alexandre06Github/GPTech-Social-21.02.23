@@ -84,11 +84,50 @@ function ProfilCo() {
 		}
 	}, []);
 
+
+  async function updateInfoProfil() {
+    const options = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "bearer " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        firstname: firstName,
+        lastname: lastName,
+        email: email,
+        age: age,
+        occupation: occupation,
+      }),
+    };
+  
+    const response = await fetch(
+      `https://social-network-api.osc-fr1.scalingo.io/gptech-social/user`,
+      options
+    );
+  
+    const data = await response.json();
+    console.log(data);
+  }
+
+
+
 	function handleEditClick(modif) {
 		// fonction quand je clique sur le bouton modifier
 		setIsEditing(!isEditing); // définir setIsEditing sur true (au lieu de false)
 		// définir le setCurrent sur l'élément sur lequel on a cliqué
 	}
+
+
+  function handleEditClick() {
+    if (isEditing) {
+      updateInfoProfil();
+    }
+    setIsEditing(!isEditing);
+  }
+
+
+
 
 	return (
 		<div>
