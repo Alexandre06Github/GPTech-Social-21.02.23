@@ -12,12 +12,18 @@ function Home() {
 	const [selectedFile, setSelectedFile] = useState([]); //we create a constant to store the selected uploaded file, with a starting value of null (no file)
 	//we create a const to handle the file input action
 	const [inputValue, setInputValue] = useState(""); //  ajout tache       we create a table to hold the input of the posts
+	const [inputTitle, setInputTitle] = useState("");
+	const [arrayT, setArrayT] = useState([]); // tableau vide
+	const addTitle = () => {
+		arrayT.push(inputTitle);
+		setArrayT([...arrayT]);
+	};
 	const [array, setArray] = useState([]); // tableau vide
 	const addTask = () => {
 		array.push(inputValue);
 		setArray([...array]);
 	};
-
+	// Posting posts to the api
 	//getting posts from the api
 	async function listPosts() {
 		const options = {
@@ -43,13 +49,10 @@ function Home() {
 	function handleInputChange(event) {
 		setInputValue(event.target.value);
 	}
-	function handleSubmit(event) {
-		event.preventDefault();
-		setInputValue("");
-		return array.map((inputValue) => {
-			return <p>{inputValue}</p>;
-		});
+	function handleInputChange2(event) {
+		setInputTitle(event.target.value);
 	}
+
 	function postInput(event) {
 		console.log("this is my input");
 	}
@@ -69,7 +72,7 @@ function Home() {
 				<div className="container">
 					<h1 className="pageTitle">Fil d'actualités</h1>
 					<h3>"Miroir, mon bot miroir..."</h3>
-					<form onSubmit={handleSubmit}>
+					<form>
 						<div className="field2">
 							<a
 								href="#"
@@ -78,16 +81,26 @@ function Home() {
 							>
 								&#x1F916;
 							</a>
-							<input
-								type="text"
-								value={inputValue}
-								onChange={handleInputChange}
-								placeholder="Raconter sa vie"
-								className="form-control2"
-							/>{" "}
+							<div className="posts">
+								<input
+									type="text"
+									value={inputTitle}
+									onChange={handleInputChange2}
+									placeholder="Titre"
+									className="form-control"
+								/>
+								<input
+									type="text"
+									value={inputValue}
+									onChange={handleInputChange}
+									placeholder="Raconter sa vie"
+									className="form-control"
+								/>
+							</div>
 						</div>
 						<button
-							onClick={addTask}
+							onClick={addTitle}
+							{...addTask}
 							type="submit"
 						>
 							Poster

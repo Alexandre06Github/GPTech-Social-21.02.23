@@ -65,3 +65,8 @@ a:-webkit-any-link {
 .upload {
 	padding: 1vw;
 }
+.posts {
+	display: flex;
+	flex-direction: column;
+	width: 40vw;
+}
