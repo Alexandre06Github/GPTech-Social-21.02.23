@@ -108,15 +108,16 @@ function HomeCo() {
 				</div>
 
 				{/* displaying the posts */}
-				{array.map((post) => (
-					<div
-						className="display"
-						key={post.id}
-					>
-						<h5>{post.title}</h5>
-						<p>{post.content}</p>
-					</div>
-				))}
+				{array &&
+					array.map((post) => (
+						<div
+							className="display"
+							key={post.id}
+						>
+							<h5>{post.title}</h5>
+							<p>{post.content}</p>
+						</div>
+					))}
 			</div>
 			{/* advert on the right */}
 			<div className="advert">
