@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../navigation/navbar";
-import Searchbar from "../navigation/searchbar";
-import Footer from "../navigation/footer";
+import Navbar from "../components/navigation/navbar";
+import Searchbar from "../components/navigation/searchbar";
+import Footer from "../components/navigation/footer";
 import "../../Styles/index.css";
 import robots4 from "../../Images/robots4.jpg";
 import robots3 from "../../Images/robots3.jpg";

@@ -33,7 +33,7 @@ function Navbar() {
 				</button>
 
 				<button className="bloc1">
-					<Link to="/perso">Profil</Link>
+					<Link to="/profil">Profil</Link>
 				</button>
 
 				<div>
