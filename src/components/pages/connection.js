@@ -33,7 +33,6 @@ function Connection() {
 		setEmail(""); // vider les inputs email et password
 		setPassword("");
 
-
 		// Envoie une requête fetch avec l'URL de l'API et les options définies
 		const response = await fetch(
 			`https://social-network-api.osc-fr1.scalingo.io/gptech-social/login`,
@@ -52,7 +51,7 @@ function Connection() {
 
 		// Si la connexion est réussie, naviguer vers la page d'accueil
 		if (data.success) {
-			navigate("/");
+			navigate("/home");
 		} else {
 			alert("Identifiant ou mot de passe incorrect, veuillez réessayer");
 		}
