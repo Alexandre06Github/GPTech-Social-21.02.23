@@ -13,14 +13,12 @@ function ProfilCo() {
   const [age, setAge] = useState("");
   const [occupation, setOccupation] = useState("");
 
-
-useEffect(() => {
   async function getInfoProfil() {
     const options = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "bearer token"
+        "Authorization": "bearer " + localStorage.getItem("token")
       }, 
     };
     console.log("option", options);
@@ -44,6 +42,9 @@ useEffect(() => {
 
 		console.log(data); // Utilise les données renvoyées par l'API
   }
+
+useEffect(() => {
+ 
 
   getInfoProfil();
   
