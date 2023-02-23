@@ -43,17 +43,15 @@ textarea {
 .gptech {
 	display: flex;
 	flex-direction: column;
-	text-shadow: 1px 1px 1px black;
 	align-items: center;
 }
 .titre {
 	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 	color: white;
-}
-.sstitre {
+	font-size: 4em;
+	text-shadow: 1px 1px 1px black;
+	margin-bottom: -3vh;
 	margin-top: -2vh;
-	color: #5adfbc;
-	font-style: italic;
 }
 .inputSearch {
 	width: 20vw;
