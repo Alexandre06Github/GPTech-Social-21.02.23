@@ -36,7 +36,7 @@ textarea {
 /* SEARCHBAR */
 .navSearch {
 	display: flex;
-	background-color: #ffc0cb;
+	background-color: #f6ad3f;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -60,8 +60,8 @@ textarea {
 
 /* NAVBAR */
 .navbar {
+	background-color: #f6ad3f;
 	width: 15vw;
-	background-color: pink;
 	text-align: center;
 }
 .navButtons {
@@ -87,7 +87,7 @@ textarea {
 }
 button {
 	width: 10vw;
-	background-color: pink;
+	background-color: #f6ad3f;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	border-color: #5adfbc;
