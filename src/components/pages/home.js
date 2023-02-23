@@ -24,6 +24,23 @@ function Home() {
 		setArray([...array]);
 	};
 	// Posting posts to the api
+	async function postPosts() {
+		const options = {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				title: addTitle,
+				content: addTask,
+			}),
+		};
+		const response = await fetch(
+			"https://social-network-api.osc-fr1.scalingo.io/gptech-social/post",
+			options
+		);
+		const data = await response.json();
+	}
 	//getting posts from the api
 	async function listPosts() {
 		const options = {
@@ -34,11 +51,11 @@ function Home() {
 				Authorization: "bearer {token}",
 			},
 			//we're sending the content with json
-			body: JSON.stringify({}),
 		};
+
 		//using the api to fetch the data
 		let response = await fetch(
-			"https://social-network-api.osc-fr1.scalingo.io/gptech-social/posts/posts?page=0&limit=10",
+			"https://social-network-api.osc-fr1.scalingo.io/gptech-social/posts?page=0&limit=10",
 			options
 		);
 		let data = await response.json();
@@ -53,9 +70,6 @@ function Home() {
 		setInputTitle(event.target.value);
 	}
 
-	function postInput(event) {
-		console.log("this is my input");
-	}
 	useEffect(() => {
 		listPosts();
 	}, []);
@@ -72,15 +86,8 @@ function Home() {
 				<div className="container">
 					<h1 className="pageTitle">Fil d'actualités</h1>
 					<h3>"Miroir, mon bot miroir..."</h3>
-					<form>
+					<div>
 						<div className="field2">
-							<a
-								href="#"
-								onClick={postInput}
-								className="upload"
-							>
-								&#x1F916;
-							</a>
 							<div className="posts">
 								<input
 									type="text"
@@ -89,8 +96,9 @@ function Home() {
 									placeholder="Titre"
 									className="form-control"
 								/>
-								<input
-									type="text"
+								<textarea
+									type="textarea"
+									rows="5"
 									value={inputValue}
 									onChange={handleInputChange}
 									placeholder="Raconter sa vie"
@@ -114,7 +122,7 @@ function Home() {
 								<p>{inputValue}</p>
 							</div>
 						))}
-					</form>
+					</div>
 				</div>
 
 				{/* advert on the right */}
