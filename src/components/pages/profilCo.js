@@ -11,6 +11,11 @@ function ProfilCo() {
   const [age, setAge] = useState("");
   const [occupation, setOccupation] = useState("");
 
+  const [newText, setNewText] = useState("")       // nouveau texte
+  const [current, setCurrent] = useState({});     // objet vide        
+  const [isEditing, setIsEditing] = useState(false);     // edition est désactivé par défaut
+
+
   async function getInfoProfil() {
     const options = {
       method: "GET",
@@ -42,51 +47,80 @@ function ProfilCo() {
   }, []);
 
 
+
+
+function handleEditClick(modif) {    // fonction quand je clique sur le bouton modifier
+  setIsEditing(!isEditing);     // définir setIsEditing sur true (au lieu de false)
+    // définir le setCurrent sur l'élément sur lequel on a cliqué
+}
+
+
+function handleEditInputChange(e) {     // fonction quand tu as saisi le nouveau texte dans l'input
+setCurrent({...current, text: e.target.value })   // current = le nouveau texte saisi dans l'input
+console.log(current);
+}
+
+
   
   return (
     <div>
       <Searchbar />
       <Navbar />
-      <div className="container">
-        <h1>Informations profil</h1>
+        {isEditing == false ? ( 
         
-        <div className="Profil">
+        <div className="container">
+          <h1>Informations profil</h1>
+        
+        
           
-          <div action="" className="mx-auto" method="get">
+          <div action="" className="mx-auto" method="get">        {/* afficher le Nom */}
             <label htmlFor="">Nom : </label>
-            <input type="text" id="Nom" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+            <span>{lastName}</span>
           </div>
 
-          <div action="" className="mx-auto" method="get">
+          <div action="" className="mx-auto" method="get">        {/* afficher le Prénom */}
             <div>
               <label htmlFor="">Prénom : </label>
-              <input type="text" id="Prenom" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+              <span>{firstName}</span>
             </div>
 
-            <div action="" className="mx-auto" method="get">
+            <div action="" className="mx-auto" method="get">        {/* afficher l'Email */}
               <div>
                 <label htmlFor="">Email : </label>
-                <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <span>{email}</span>
               </div>
               
-              <div action="" className="mx-auto" method="get">
+              <div action="" className="mx-auto" method="get">        {/* afficher l'Age */}
                 <div>
                   <label htmlFor="">Age : </label>
-                  <input type="text" id="age" value={age} onChange={(e) => setAge(e.target.value)} />
+                  <span>{age}</span>
                 </div>
 
-                <div action="" className="mx-auto" method="get">
+                <div action="" className="mx-auto" method="get">        {/* afficher le Travail */}
                   <div>
                     <label htmlFor="">Emploi : </label>
-                    <input type="text" id="age" value={occupation} onChange={(e) => setOccupation(e.target.value)} />
+                    <span>{occupation}</span>
                   </div>
-                  <button>Valider</button>
+
+                  <button onClick={handleEditClick}>Modifier</button>   {/* fonction quand tu cliques sur modifier */}
+                
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        
+
+
+
+
+
+
+        
+      </div>) : <button onClick={handleEditClick}>Modifier</button>}
+      
+      
+      
+     
       <Footer />
     </div>
   );
