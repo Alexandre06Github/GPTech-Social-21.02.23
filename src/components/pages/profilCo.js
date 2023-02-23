@@ -5,15 +5,16 @@ import Searchbar from "../navigation/searchbar";
 import "../../Styles/index.css";
 
 function ProfilCo() {
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
   const [occupation, setOccupation] = useState("");
-
   const [isEditing, setIsEditing] = useState(false);     // edition est désactivé par défaut
 
   async function getInfoProfil() {
+
     const options = {
       method: "GET",
       headers: {
@@ -35,6 +36,7 @@ function ProfilCo() {
     setEmail(data.email);
     setAge(data.age);
     setOccupation(data.occupation);
+    
 
     console.log(data); // Utilise les données renvoyées par l'API
   }
@@ -43,7 +45,9 @@ function ProfilCo() {
     getInfoProfil();
   }, []);
 
+////////////////////////////////////////////////////
   async function putInfoProfil() {
+    
     const options = {
       method: "PUT",
       headers: {
@@ -65,27 +69,17 @@ function ProfilCo() {
     );
 
     const data = await response.json();
-    console.log(data); // Affiche les données renvoyées par l'API après la mise à jour
-    localStorage.setItem("user", JSON.stringify(data)); // Sauvegarde les nouvelles informations dans le stockage local
-  }
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      setFirstName(user.firstName);
-      setLastName(user.lastName);
-      setEmail(user.email);
-      setAge(user.age);
-      setOccupation(user.occupation);
-    } else {
-      getInfoProfil();
-    }
-  }, []);
-
+    setFirstName(data.firstname);
+    setLastName(data.lastname);
+    setEmail(data.email);
+    setAge(data.age);
+    setOccupation(data.occupation);
+}
 
 function handleEditClick(modif) {    // fonction quand je clique sur le bouton modifier
   setIsEditing(!isEditing);     // définir setIsEditing sur true (au lieu de false)
     // définir le setCurrent sur l'élément sur lequel on a cliqué
+    
 }
 
   return (
