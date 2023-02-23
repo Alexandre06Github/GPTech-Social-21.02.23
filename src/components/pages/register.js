@@ -12,11 +12,7 @@ function Register() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [newUser, setNewUser] = useState({});
-
-  const handleInput = async (e) => {
-    setNewUser({ ...newUser, [e.target.name]: e.target.value });
-  };
+ 
 
   //functions
   const navigate = useNavigate();

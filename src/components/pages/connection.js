@@ -36,7 +36,7 @@ function Connection() {
 
 		// Envoie une requête fetch avec l'URL de l'API et les options définies
 		const response = await fetch(
-			`https://social-network-api.osc-fr1.scalingo.io/GPTech-social/login`,
+			`https://social-network-api.osc-fr1.scalingo.io/gptech-social/login`,
 			options
 		);
 
