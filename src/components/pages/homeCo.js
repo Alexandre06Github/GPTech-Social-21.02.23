@@ -7,7 +7,7 @@ import robots1 from "../../Images/robots1.png";
 import robots5 from "../../Images/robots5.jpg";
 import Searchbar from "../navigation/searchbar";
 
-function HomeCo() {
+function Home() {
 	//we create a const to handle the file input action
 	const [inputValue, setInputValue] = useState(""); //  ajout tache, we create a table to hold the input of the posts
 	const [inputTitle, setInputTitle] = useState("");
@@ -66,6 +66,15 @@ function HomeCo() {
 	}
 	function handleInputChange2(event) {
 		setInputTitle(event.target.value);
+	}
+
+	function posting(event, inputTitle, inputValue) {
+		const newComment = {
+			id: array.length + 1,
+			title: inputTitle,
+			comment: inputValue,
+		};
+		setArray([...array, posting]);
 	}
 
 	useEffect(() => {
@@ -145,4 +154,4 @@ function HomeCo() {
 	);
 }
 
-export default HomeCo;
+export default Home;

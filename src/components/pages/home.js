@@ -68,6 +68,15 @@ function Home() {
 		setInputTitle(event.target.value);
 	}
 
+	function posting(event, inputTitle, inputValue) {
+		const newComment = {
+			id: array.length + 1,
+			title: inputTitle,
+			comment: inputValue,
+		};
+		setArray([...array, posting]);
+	}
+
 	useEffect(() => {
 		listPosts();
 	}, []);
