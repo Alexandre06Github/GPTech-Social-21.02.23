@@ -8,7 +8,7 @@ function Navbar() {
 	const navigate=useNavigate();
 
 	const handleSubmit = async (e) => {
-		localStorage.removeItem("token")
+		localStorage.removeItem("token","email","password")
 		navigate("/")
 	}
 
