@@ -1,3 +1,4 @@
+import { cleanup } from "@testing-library/react";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../Styles/index.css";
@@ -9,6 +10,8 @@ function Navbar() {
 
 	const handleSubmit = async (e) => {
 		localStorage.removeItem("token")
+		localStorage.removeItem("email")
+		localStorage.removeItem("password")
 		navigate("/")
 	}
 
