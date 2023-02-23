@@ -1,0 +1,101 @@
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+/* PERSO */
+.profil {
+	display: flex;
+	justify-content: space-between;
+}
+.blocProfil {
+	display: flex;
+	flex-direction: column;
+	padding-left: 2vw;
+	padding-right: 2vw;
+	text-align: center;
+}
+
+.formId {
+	text-align: left;
+}
+.formInputDescription {
+	height: 9vh;
+}
+
+textarea {
+	border-color: #5adfbc;
+}
+
+/* SEARCHBAR */
+.navSearch {
+	display: flex;
+	background-color: #ffc0cb;
+	justify-content: space-between;
+	align-items: center;
+}
+.gptech {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.titre {
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	color: white;
+	font-size: 4em;
+	text-shadow: 1px 1px 1px black;
+	margin-bottom: -3vh;
+	margin-top: -2vh;
+}
+.inputSearch {
+	width: 20vw;
+	height: fit-content;
+}
+
+/* NAVBAR */
+.navbar {
+	width: 15vw;
+	background-color: pink;
+	text-align: center;
+}
+.navButtons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 5px;
+	padding-top: 5vh;
+}
+
+/* S IDENTIFIER */
+.middle {
+	display: flex;
+	justify-content: space-between;
+}
+
+.espace {
+	padding: 2%;
+}
+
+.buttonValider {
+	padding: 4%;
+}
+button {
+	width: 10vw;
+	background-color: pink;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border-color: #5adfbc;
+	text-decoration: none;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+	border-radius: 5px;
+}
+button:active {
+	background-color: #5adfbc;
+}

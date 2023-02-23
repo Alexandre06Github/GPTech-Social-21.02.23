@@ -1,0 +1,44 @@
+.form-control {
+	padding: 12px;
+	border: 1px solid #5adfbc;
+}
+.form-control2 {
+	padding: 12px;
+	border: 1px solid #5adfbc;
+	width: 50vw;
+}
+
+.container {
+	width: 50vw;
+	box-sizing: border-box;
+	border-radius: 5px;
+	background-color: pink;
+	display: flex;
+	flex-direction: column;
+	margin-top: 5vh;
+	padding-left: 5vw;
+	padding-right: 5vw;
+}
+.field {
+	display: flex;
+	flex-direction: column;
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+}
+.field2 {
+	display: flex;
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+}
+label {
+	color: black;
+}
+.bodyReg {
+	display: flex;
+	justify-content: space-between;
+}
+.pageTitle {
+	color: #5adfbc;
+	text-shadow: 1px 1px 1px black;
+	text-align: center;
+}

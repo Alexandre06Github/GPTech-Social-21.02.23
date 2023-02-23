@@ -1,6 +1,7 @@
 .bot {
 	width: 20vw;
-	align-items: center;
+	padding-right: 2vw;
+	padding-top: 2vw;
 }
 .homeBody {
 	display: flex;
@@ -11,8 +12,9 @@
 	flex-direction: column;
 }
 .footer {
-	font-size: 0.7em;
+	font-size: 0.8em;
 	text-align: center;
+	color: pink;
 }
 .banner {
 	position: static;
@@ -24,15 +26,7 @@
 	color: white;
 	background-color: rgb(10, 140, 131);
 }
-.centerBody {
-	width: 50vw;
-	height: 50vh;
-	padding-left: 2vw;
-	padding-right: 2vw;
-	display: flex;
-	flex-direction: column;
-	align-items: top;
-}
+
 .post {
 	height: fit-content;
 }
@@ -41,12 +35,33 @@
 	display: none;
 }
 .logo {
-	width: 50px;
+	width: 8vw;
 }
 .go {
 	text-align: center;
 }
 .input {
-	width: 30vw;
 	margin-left: 2vw;
+}
+.display {
+	background-color: white;
+	padding-left: 2vw;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	margin-top: 2vh;
+}
+input {
+	border-color: #5adfbc;
+}
+a:-webkit-any-link {
+	text-decoration: none;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+}
+.advert {
+	display: flex;
+	flex-direction: column;
+}
+.upload {
+	padding: 1vw;
 }

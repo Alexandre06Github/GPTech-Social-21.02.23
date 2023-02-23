@@ -1,47 +1,48 @@
 import React from "react";
-import logo from "../navigation/logo.png";
 import { Link } from "react-router-dom";
-
+import "../../Styles/index.css";
 import Home from "../pages/home"; // lien page d'accueil
 import Register from "../pages/register"; // lien page d'inscription
 
 function Navbar() {
+	return (
+		<nav className="navbar">
+			<div className="navButtons">
+				<button className="bloc1">
+					<Link
+						to="/register"
+						className="bloc1"
+					>
+						Inscription
+					</Link>
+				</button>
+				<button className="bloc1">
+					<Link
+						to="/connection"
+						className="bloc1"
+					>
+						Se connecter
+					</Link>
+				</button>
+				<div>
+					<p></p>
+				</div>
 
-  return (
+				<button className="bloc1">
+					<Link to="/">Accueil</Link>
+				</button>
 
-    <nav className="navbar">
-      <div>
-        <div className="bloc1">
-          <Link to="/register" className="bloc1">
-            Inscription
-          </Link>
-        </div>
-        <div>
-          <div className="bloc1">
-            <Link to="/connection" className="bloc1">
-              Se connecter
-            </Link>
-          </div>
-        </div>
+				<button className="bloc1">
+					<Link to="/perso">Profil</Link>
+				</button>
 
-        <div className="classDiv"></div>
-
-        <div className="bloc1">
-          <Link to="/">Accueil</Link>
-        </div>
-
-        <div className="bloc1">
-          <Link to="/perso">Profil</Link>
-        </div>
-
-        <div className="bloc1">
-          <Link to="/profilCo">ProfilCo</Link>
-        </div>
-
-      </div>
-      <button className="buttonDeco">Déconnection</button>
-    </nav>
-  );
+				<div>
+					<p></p>
+				</div>
+				<button className="buttonDeco">Déconnexion</button>
+			</div>
+		</nav>
+	);
 }
 
 export default Navbar;

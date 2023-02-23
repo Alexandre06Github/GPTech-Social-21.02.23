@@ -1,10 +1,10 @@
 import react from "react";
-import "../pages/navStyle.css";
+import "../../Styles/navStyle.css";
 
 function Footer() {
 	return (
 		<div className="footer">
-			<p>Réalisé avec amour, sueur et sang frais, Nice 2023</p>
+			<p>Réalisé avec sang, sueur et larmes, Nice 2023</p>
 		</div>
 	);
 }
