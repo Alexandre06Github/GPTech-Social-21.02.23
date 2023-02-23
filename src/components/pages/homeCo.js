@@ -102,8 +102,8 @@ function HomeCo() {
 									className="form-control"
 								/>
 							</div>
-							<button type="submit">Poster</button>
 						</div>
+						<button type="submit">Poster</button>
 					</form>
 				</div>
 
@@ -118,21 +118,21 @@ function HomeCo() {
 							<p>{post.content}</p>
 						</div>
 					))}
-			</div>
-			{/* advert on the right */}
-			<div className="advert">
-				<img
-					src={robots1}
-					alt="advert"
-					className="bot"
-				/>
-				<img
-					src={robots5}
-					alt="advert"
-					className="bot"
-				/>
-			</div>
 
+				{/* advert on the right */}
+				<div className="advert">
+					<img
+						src={robots1}
+						alt="advert"
+						className="bot"
+					/>
+					<img
+						src={robots5}
+						alt="advert"
+						className="bot"
+					/>
+				</div>
+			</div>
 			{/* end of the page */}
 			<div>
 				<Footer />
