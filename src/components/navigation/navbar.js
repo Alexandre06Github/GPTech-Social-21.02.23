@@ -39,7 +39,7 @@ function Navbar() {
 				<div>
 					<p></p>
 				</div>
-				<button className="buttonDeco">Déconnection</button>
+				<button className="buttonDeco">Déconnexion</button>
 			</div>
 		</nav>
 	);
