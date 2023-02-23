@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import Navbar from "../navigation/navbar";
 import Footer from "../navigation/footer";
 import "../../Styles/navStyle.css";
@@ -7,38 +8,18 @@ import robots5 from "../../Images/robots5.jpg";
 import Searchbar from "../navigation/searchbar";
 
 function Home() {
-	//FILE UPLOAD
-
+	//an attempt at file upload
 	const [selectedFile, setSelectedFile] = useState([]); //we create a constant to store the selected uploaded file, with a starting value of null (no file)
-	const handleFileInputClick = () => {
-		document.getElementById("fileInput").click();
-	}; //we create a const to handle the file input action
+	//we create a const to handle the file input action
 	const [inputValue, setInputValue] = useState(""); //  ajout tache       we create a table to hold the input of the posts
 	const [array, setArray] = useState([]); // tableau vide
-
-	//HANDLING POSTS
-
-	function handleInputChange(event) {
-		setInputValue(event.target.value);
-	}
-
 	const addTask = () => {
 		array.push(inputValue);
 		setArray([...array]);
 	};
 
-	function handleSubmit(event) {
-		event.preventDefault();
-		console.log(inputValue);
-		setInputValue("");
-		return array.map((inputValue) => {
-			return <p>{inputValue}</p>;
-		});
-	}
-
-	// GETTING POSTS - NO TOUCHING
-	//pulling posts from the api
-	const listPosts = async () => {
+	//getting posts from the api
+	async function listPosts() {
 		const options = {
 			method: "GET",
 			headers: {
@@ -57,7 +38,24 @@ function Home() {
 		let data = await response.json();
 		//We're collecting the content of the posts from the response data. The setMyInput updates the value of 'inputValue' with the content retrieved from the api
 		inputValue(data.content);
-	};
+	}
+
+	function handleInputChange(event) {
+		setInputValue(event.target.value);
+	}
+	function handleSubmit(event) {
+		event.preventDefault();
+		setInputValue("");
+		return array.map((inputValue) => {
+			return <p>{inputValue}</p>;
+		});
+	}
+	function postInput(event) {
+		console.log("this is my input");
+	}
+	useEffect(() => {
+		listPosts();
+	}, []);
 
 	return (
 		<div className="App">
@@ -75,7 +73,7 @@ function Home() {
 						<div className="field2">
 							<a
 								href="#"
-								onClick={handleFileInputClick}
+								onClick={postInput}
 								className="upload"
 							>
 								&#x1F916;
