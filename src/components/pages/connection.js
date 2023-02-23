@@ -33,7 +33,6 @@ function Connection() {
 		setEmail(""); // vider les inputs email et password
 		setPassword("");
 
-		setToken(localStorage.getItem("token")); // récupérer la valeur du token stockée dans le localstorage et la mettre à jour dans l'état de la variable token.
 
 		// Envoie une requête fetch avec l'URL de l'API et les options définies
 		const response = await fetch(
