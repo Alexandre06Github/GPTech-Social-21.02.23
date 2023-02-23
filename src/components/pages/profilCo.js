@@ -49,56 +49,38 @@ function ProfilCo() {
       <Navbar />
       <div className="container">
         <h1>Informations profil</h1>
+        
         <div className="Profil">
+          
           <div action="" className="mx-auto" method="get">
-            <label htmlFor="">Nom :</label>
-            <input
-              type="text"
-              id="Nom"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
+            <label htmlFor="">Nom : </label>
+            <input type="text" id="Nom" value={lastName} onChange={(e) => setLastName(e.target.value)} />
           </div>
+
           <div action="" className="mx-auto" method="get">
             <div>
-              <label htmlFor="">Prénom :</label>
-              <input
-                type="text"
-                id="Prenom"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
+              <label htmlFor="">Prénom : </label>
+              <input type="text" id="Prenom" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
             </div>
+
             <div action="" className="mx-auto" method="get">
               <div>
-                <label htmlFor="">Email :</label>
-                <input
-                  type="text"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                <label htmlFor="">Email : </label>
+                <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
+              
               <div action="" className="mx-auto" method="get">
                 <div>
-                  <label htmlFor="">Age :</label>
-                  <input
-                    type="text"
-                    id="age"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                  />
+                  <label htmlFor="">Age : </label>
+                  <input type="text" id="age" value={age} onChange={(e) => setAge(e.target.value)} />
                 </div>
+
                 <div action="" className="mx-auto" method="get">
                   <div>
-                    <label htmlFor="">Occupation:</label>
-                    <input
-                      type="text"
-                      id="age"
-                      value={occupation}
-                      onChange={(e) => setOccupation(e.target.value)}
-                    />
+                    <label htmlFor="">Emploi : </label>
+                    <input type="text" id="age" value={occupation} onChange={(e) => setOccupation(e.target.value)} />
                   </div>
+                  <button>Valider</button>
                 </div>
               </div>
             </div>
