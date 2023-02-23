@@ -1,10 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../Styles/index.css";
-import Home from "../pages/home"; // lien page d'accueil
-import Register from "../pages/register"; // lien page d'inscription
+
+
 
 function Navbar() {
+	const navigate=useNavigate();
+
+	const handleSubmit = async (e) => {
+		localStorage.removeItem("token")
+		navigate("/")
+	}
+
+
+
 	return (
 		<nav className="navbar">
 			<div className="navButtons">
@@ -39,10 +48,11 @@ function Navbar() {
 				<div>
 					<p></p>
 				</div>
-				<button className="buttonDeco">Déconnexion</button>
+				<button onClick={handleSubmit}className="buttonDeco">Déconnexion</button>
 			</div>
 		</nav>
 	);
 }
+
 
 export default Navbar;
