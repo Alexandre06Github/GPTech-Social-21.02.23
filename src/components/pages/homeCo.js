@@ -7,7 +7,7 @@ import robots1 from "../../Images/robots1.png";
 import robots5 from "../../Images/robots5.jpg";
 import Searchbar from "../navigation/searchbar";
 
-function Home() {
+function HomeCo() {
 	//we create a const to handle the file input action
 	const [inputValue, setInputValue] = useState(""); //  ajout tache, we create a table to hold the input of the posts
 	const [inputTitle, setInputTitle] = useState("");
@@ -41,7 +41,6 @@ function Home() {
 				"Content-Type": "application/json",
 				Authorization: "bearer {token}",
 			},
-			//we're sending the content with json
 		};
 
 		//using the api to fetch the data
@@ -125,12 +124,12 @@ function Home() {
 					src={robots1}
 					alt="advert"
 					className="bot"
-				></img>
+				/>
 				<img
 					src={robots5}
 					alt="advert"
 					className="bot"
-				></img>
+				/>
 			</div>
 
 			{/* end of the page */}
@@ -141,4 +140,4 @@ function Home() {
 	);
 }
 
-export default Home;
+export default HomeCo;
