@@ -6,7 +6,7 @@ import Footer from "./components/navigation/footer";
 import Navbar from "./components/navigation/navbar";
 import Searchbar from "./components/navigation/searchbar";
 import Connection from "./components/pages/connection";
-import Perso from "./components/pages/perso";
+import Perso from "./components/pages/profilCo";
 import Register from "./components/pages/register";
 
 export const router = createBrowserRouter([
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
 	},
 
 	{
-		path: "/perso",
+		path: "/profil",
 		element: <Perso />,
 		errorElement: <Error />,
 	},
