@@ -26,17 +26,7 @@
 	color: white;
 	background-color: rgb(10, 140, 131);
 }
-.centerBody {
-	width: 50vw;
-	height: 110vh;
-	padding-left: 2vw;
-	padding-right: 2vw;
-	display: flex;
-	flex-direction: column;
-	align-items: top;
-	border-left: 1px solid #5adfbc;
-	border-right: 1px solid #5adfbc;
-}
+
 .post {
 	height: fit-content;
 }
@@ -51,12 +41,14 @@
 	text-align: center;
 }
 .input {
-	width: 30vw;
 	margin-left: 2vw;
 }
 .display {
-	border: 1px solid pink;
+	background-color: white;
 	padding-left: 2vw;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	margin-top: 2vh;
 }
 input {
 	border-color: #5adfbc;
@@ -64,9 +56,12 @@ input {
 a:-webkit-any-link {
 	text-decoration: none;
 	color: white;
-	text-shadow: 1px 1px 2px black;
+	text-shadow: 1px 1px 1px black;
 }
 .advert {
 	display: flex;
 	flex-direction: column;
+}
+.upload {
+	padding: 1vw;
 }

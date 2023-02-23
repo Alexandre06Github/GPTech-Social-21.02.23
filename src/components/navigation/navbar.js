@@ -7,7 +7,7 @@ import Register from "../pages/register"; // lien page d'inscription
 function Navbar() {
 	return (
 		<nav className="navbar">
-			<div>
+			<div className="navButtons">
 				<button className="bloc1">
 					<Link
 						to="/register"
@@ -16,18 +16,17 @@ function Navbar() {
 						Inscription
 					</Link>
 				</button>
+				<button className="bloc1">
+					<Link
+						to="/connection"
+						className="bloc1"
+					>
+						Se connecter
+					</Link>
+				</button>
 				<div>
-					<button className="bloc1">
-						<Link
-							to="/connection"
-							className="bloc1"
-						>
-							Se connecter
-						</Link>
-					</button>
+					<p></p>
 				</div>
-
-				<div className="classDiv"></div>
 
 				<button className="bloc1">
 					<Link to="/">Accueil</Link>
@@ -37,12 +36,9 @@ function Navbar() {
 					<Link to="/perso">Profil</Link>
 				</button>
 
-				{/* <button className="bloc1">
-					<Link to="/profilCo">Profil</Link>
-				</button> */}
-			</div>
-			<div className="classDiv"></div>
-			<div>
+				<div>
+					<p></p>
+				</div>
 				<button className="buttonDeco">Déconnection</button>
 			</div>
 		</nav>

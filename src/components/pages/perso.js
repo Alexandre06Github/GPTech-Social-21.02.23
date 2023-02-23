@@ -12,29 +12,38 @@ function Perso() {
 			<Searchbar />
 			<div className="profil">
 				<Navbar />
-				<div className="blocProfil">
-					<h2 className="profilTitle">Profil</h2>
-					<div className="empty"></div>
+				<div className="container">
+					<h1 className="pageTitle">Profil</h1>
+
 					<h3 className="profilTitlePublic">Public</h3>
-					<div className="empty"></div>
-					<h4 className="formId">Nom d'utilisateur :</h4>
-					<input className="formInput"></input>
-					<h4 className="formId">Age :</h4>
-					<input
-						className="formInput"
-						type="number"
-						min="15"
-						max="99"
-					></input>
-					<h4 className="formId">Description :</h4>
-					<textarea className="formInputDescription"></textarea>
+
+					<div className="field">
+						<label htmlFor="">Nom d'utilisateur</label>
+						<input className="form-control"></input>
+					</div>
+					<div className="field">
+						<label htmlFor="">Age</label>
+						<input
+							className="form-control"
+							type="number"
+							min="15"
+							max="99"
+						></input>
+					</div>
+					<div className="field">
+						<label htmlFor="">Description</label>
+						<textarea className="form-control"></textarea>
+					</div>
 
 					<h3 className="profilTitlePrivate">Privé 🔒</h3>
-					<br></br>
-					<h4 className="formId">Email :</h4>
-					<input className="formInput"></input>
-					<h4 className="formId">Adresse :</h4>
-					<input className="formInput"></input>
+					<div className="field">
+						<label htmlFor="">Email</label>
+						<input className="form-control"></input>
+					</div>
+					<div className="field">
+						<label htmlFor="">Adresse</label>
+						<input className="form-control"></input>
+					</div>
 					<button className="buttonModifProfil">Modifier</button>
 				</div>
 				<div className="advert">

@@ -68,27 +68,33 @@ function Home() {
 				<Navbar />
 
 				{/* MIDDLE POST  */}
-				<div className="centerBody">
+				<div className="container">
+					<h1 className="pageTitle">Fil d'actualités</h1>
+					<h3>"Miroir, mon bot miroir..."</h3>
 					<form onSubmit={handleSubmit}>
-						<a
-							href="#"
-							onClick={handleFileInputClick}
-						>
-							&#x1F916;
-						</a>
-						<input
-							type="text"
-							value={inputValue}
-							onChange={handleInputChange}
-							placeholder="Raconter sa vie"
-							className="input"
-						/>{" "}
+						<div className="field2">
+							<a
+								href="#"
+								onClick={handleFileInputClick}
+								className="upload"
+							>
+								&#x1F916;
+							</a>
+							<input
+								type="text"
+								value={inputValue}
+								onChange={handleInputChange}
+								placeholder="Raconter sa vie"
+								className="form-control2"
+							/>{" "}
+						</div>
 						<button
 							onClick={addTask}
 							type="submit"
 						>
 							Poster
 						</button>
+						{/* displaying the posts */}
 						{array.map((inputValue) => (
 							<div
 								className="display"
