@@ -11,6 +11,7 @@ function Register() {
 	const [lastName, setLastName] = useState([]);
 	const [email, setEmail] = useState([]);
 	const [password, setPassword] = useState([]);
+	const [newUser, setNewUser] = useState ({});
 
 	//functions
 
@@ -31,7 +32,7 @@ function Register() {
 
 		//Appel Api
 		await fetch(
-			`https://social-network-api.osc-fr1.scalingo.io/GPTech-social/register`,
+			`https://social-network-api.osc-fr1.scalingo.io/gptech-social/register`,
 			options
 		)
 			.then((response) => response.json()) // Récupère la réponse au format JSON
