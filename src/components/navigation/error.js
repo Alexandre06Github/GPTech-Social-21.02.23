@@ -1,14 +1,18 @@
 import React from "react";
-import navbar from "./navbar";
-import footer from "./footer";
+import Navbar from "../navigation/navbar";
+import Searchbar from "../navigation/searchbar";
+import Footer from "../navigation/footer";
 import "../../Styles/navStyle.css";
 
 function Error() {
 	return (
 		<div>
-			<navbar />
-			<h1>Game Over</h1>
-			<footer />
+			<Searchbar />
+			<Navbar />
+			<div className="container">
+				<h1>Game Over</h1>
+			</div>
+			<Footer />
 		</div>
 	);
 }

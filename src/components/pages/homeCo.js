@@ -7,20 +7,12 @@ import robots1 from "../../Images/robots1.png";
 import robots5 from "../../Images/robots5.jpg";
 import Searchbar from "../navigation/searchbar";
 
-function Home() {
+function HomeCo() {
 	//we create a const to handle the file input action
 	const [inputValue, setInputValue] = useState(""); //  ajout tache, we create a table to hold the input of the posts
 	const [inputTitle, setInputTitle] = useState("");
-	const [arrayT, setArrayT] = useState([]); // tableau vide
-	const addTitle = () => {
-		arrayT.push(inputTitle);
-		setArrayT([...arrayT]);
-	};
 	const [array, setArray] = useState([]); // tableau vide
-	const addTask = () => {
-		array.push(inputValue);
-		setArray([...array]);
-	};
+
 	// Posting posts to the api
 	async function postPosts() {
 		const options = {
@@ -29,8 +21,8 @@ function Home() {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				title: addTitle,
-				content: addTask,
+				title: inputTitle,
+				content: inputValue,
 			}),
 		};
 		const response = await fetch(
@@ -38,6 +30,7 @@ function Home() {
 			options
 		);
 		const data = await response.json();
+		setArray([...array, data]);
 	}
 	//getting posts from the api
 	async function listPosts() {
@@ -48,7 +41,6 @@ function Home() {
 				"Content-Type": "application/json",
 				Authorization: "bearer {token}",
 			},
-			//we're sending the content with json
 		};
 
 		//using the api to fetch the data
@@ -58,7 +50,7 @@ function Home() {
 		);
 		let data = await response.json();
 		//We're collecting the content of the posts from the response data. The setMyInput updates the value of 'inputValue' with the content retrieved from the api
-		inputValue(data.content);
+		setArray(data.content);
 	}
 
 	function handleInputChange(event) {
@@ -68,13 +60,11 @@ function Home() {
 		setInputTitle(event.target.value);
 	}
 
-	function posting(event, inputTitle, inputValue) {
-		const newComment = {
-			id: array.length + 1,
-			title: inputTitle,
-			comment: inputValue,
-		};
-		setArray([...array, posting]);
+	function handleSubmit(event) {
+		event.preventDefault();
+		postPosts();
+		setInputValue("");
+		setInputTitle("");
 	}
 
 	useEffect(() => {
@@ -93,7 +83,7 @@ function Home() {
 				<div className="container">
 					<h1 className="pageTitle">Fil d'actualités</h1>
 					<h3>"Miroir, mon bot miroir..."</h3>
-					<div>
+					<form onSubmit={handleSubmit}>
 						<div className="field2">
 							<div className="posts">
 								<input
@@ -113,24 +103,21 @@ function Home() {
 								/>
 							</div>
 						</div>
-						<button
-							onClick={addTitle}
-							{...addTask}
-							type="submit"
-						>
-							Poster
-						</button>
-						{/* displaying the posts */}
-						{array.map((inputValue) => (
-							<div
-								className="display"
-								key={inputValue.id}
-							>
-								<p>{inputValue}</p>
-							</div>
-						))}
-					</div>
+						<button type="submit">Poster</button>
+					</form>
 				</div>
+
+				{/* displaying the posts */}
+				{array &&
+					array.map((post) => (
+						<div
+							className="display"
+							key={post.id}
+						>
+							<h5>{post.title}</h5>
+							<p>{post.content}</p>
+						</div>
+					))}
 
 				{/* advert on the right */}
 				<div className="advert">
@@ -138,15 +125,15 @@ function Home() {
 						src={robots1}
 						alt="advert"
 						className="bot"
-					></img>
+					/>
 					<img
 						src={robots5}
 						alt="advert"
 						className="bot"
-					></img>
+					/>
 				</div>
 			</div>
-			{/* end of page */}
+			{/* end of the page */}
 			<div>
 				<Footer />
 			</div>
@@ -154,4 +141,4 @@ function Home() {
 	);
 }
 
-export default Home;
+export default HomeCo;
