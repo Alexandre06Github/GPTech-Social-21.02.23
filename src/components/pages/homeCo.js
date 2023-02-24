@@ -9,13 +9,13 @@ import Searchbar from "../navigation/searchbar";
 
 import { useReducer } from "react";
 
-
 function HomeCo() {
 	//we create a const to handle the file input action
 	const [inputValue, setInputValue] = useState(""); //  ajout tache, we create a table to hold the input of the posts
 	const [inputTitle, setInputTitle] = useState("");
 	const [array, setArray] = useState([]); // tableau vide
 	const [token, setToken] = useState(localStorage.getItem("token") || "");
+	const [allPosts, setAllPosts] = useState([]);
 
 	//CHECKING
 	// Getting the token collected when connecting from the api to check whether the user can post
@@ -64,6 +64,18 @@ function HomeCo() {
 		const data = await response.json();
 		console.log(data);
 	}
+	const renderMyPosts = () => {
+		if (allPosts.length >= 0) {
+			return allPosts.map((item, index) => {
+				return (
+					<div key={index}>
+						<h6>{item.title}</h6>
+						<p>{item.content}</p>
+					</div>
+				);
+			});
+		}
+	};
 
 	// FETCHING
 	//getting posts from the api
@@ -137,19 +149,19 @@ function HomeCo() {
 						</div>
 						<button type="submit">Poster</button>
 					</form>
-				</div>
 
-				{/* displaying the posts */}
-				{array &&
-					array.map((post) => (
+					{/* displaying the posts */}
+
+					<div className="form-control2">
 						<div
-							className="display"
-							key={post.id}
+							action=""
+							method="get"
+							className="field"
 						>
-							<h5>{post.title}</h5>
-							<p>{post.content}</p>
+							{renderMyPosts()}
 						</div>
-					))}
+					</div>
+				</div>
 
 				{/* advert on the right */}
 				<div className="advert">
