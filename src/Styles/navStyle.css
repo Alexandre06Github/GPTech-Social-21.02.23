@@ -68,3 +68,7 @@ a:-webkit-any-link {
 	flex-direction: column;
 	width: 40vw;
 }
+h5 {
+	color: white;
+	padding-right: 10px;
+}

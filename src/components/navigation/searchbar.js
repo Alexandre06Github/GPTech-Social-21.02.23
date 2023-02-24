@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import logo from "../../Images/logo.png";
 import "../../Styles/index.css";
 
+let connected = () => {
+	if (localStorage.getItem("token") === true) {
+		return <h5>Vous êtes connecté</h5>;
+	} else {
+		return <h5>Vous n'êtes pas connecté</h5>;
+	}
+};
+
 function Searchbar() {
 	return (
 		<nav>
@@ -18,6 +26,8 @@ function Searchbar() {
 						"Le réseau social pour les accros des robots"
 					</h4>
 				</div>
+
+				<div>{connected()}</div>
 			</div>
 		</nav>
 	);

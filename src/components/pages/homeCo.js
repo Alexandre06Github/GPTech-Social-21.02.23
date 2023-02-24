@@ -13,6 +13,7 @@ function HomeCo() {
 	const [inputTitle, setInputTitle] = useState("");
 	const [array, setArray] = useState([]); // tableau vide
 
+	//POSTING
 	// Posting posts to the api
 	async function postPosts() {
 		const options = {
@@ -20,6 +21,9 @@ function HomeCo() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			// to validate token to allow editing
+			Authorization: "bearer {token}",
+			//get the data in the right format
 			body: JSON.stringify({
 				title: inputTitle,
 				content: inputValue,
@@ -32,14 +36,15 @@ function HomeCo() {
 		const data = await response.json();
 		setArray([...array, data]);
 	}
+
+	// FETCHING
 	//getting posts from the api
 	async function listPosts() {
 		const options = {
 			method: "GET",
 			headers: {
-				//standard http header, tells the server that that the request is in json format
+				//standard http header, tells the server that the request is in json format
 				"Content-Type": "application/json",
-				Authorization: "bearer {token}",
 			},
 		};
 
@@ -49,7 +54,7 @@ function HomeCo() {
 			options
 		);
 		let data = await response.json();
-		//We're collecting the content of the posts from the response data. The setMyInput updates the value of 'inputValue' with the content retrieved from the api
+
 		setArray(data.content);
 	}
 
