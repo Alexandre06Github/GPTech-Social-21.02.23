@@ -25,15 +25,16 @@ body {
 }
 
 textarea {
-	border-color: #5adfbc;
+	border-color: #333332;
 }
 
 /* SEARCHBAR */
 .navSearch {
 	display: flex;
-	background-color: #f6ad3f;
+	background-color: #333332;
 	justify-content: space-between;
 	align-items: center;
+	padding-right: 50vw;
 }
 .gptech {
 	display: flex;
@@ -46,7 +47,10 @@ textarea {
 	font-size: 4em;
 	text-shadow: 1px 1px 1px black;
 	margin-bottom: -3vh;
-	margin-top: -2vh;
+	margin-top: -1vh;
+}
+.stitre {
+	color: #f0bf6f;
 }
 .inputSearch {
 	width: 20vw;
@@ -55,7 +59,7 @@ textarea {
 
 /* NAVBAR */
 .navbar {
-	background-color: #f6ad3f;
+	background-color: #333332;
 	width: 15vw;
 	text-align: center;
 }
@@ -82,15 +86,18 @@ textarea {
 }
 button {
 	width: 10vw;
-	background-color: #f6ad3f;
+	background-color: #f0bf6f;
 	padding-top: 3px;
 	padding-bottom: 3px;
-	border-color: #5adfbc;
+	border-color: black;
 	text-decoration: none;
-	color: white;
-	text-shadow: 1px 1px 1px black;
+	color: #333332;
 	border-radius: 5px;
 }
 button:active {
-	background-color: #5adfbc;
+	background-color: #333332;
+	color: white;
+}
+h3 {
+	color: #333332;
 }

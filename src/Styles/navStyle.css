@@ -24,7 +24,6 @@
 	position: relative;
 	padding: 1vh 0vw 1vh 5vw;
 	color: white;
-	background-color: rgb(10, 140, 131);
 }
 
 .post {
@@ -51,12 +50,11 @@
 	margin-top: 2vh;
 }
 input {
-	border-color: #5adfbc;
+	border-color: #333332;
 }
 a:-webkit-any-link {
 	text-decoration: none;
-	color: white;
-	text-shadow: 1px 1px 1px black;
+	color: #333332;
 }
 .advert {
 	display: flex;
