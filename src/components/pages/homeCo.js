@@ -14,31 +14,29 @@ function HomeCo() {
 	const [array, setArray] = useState([]); // tableau vide
 	const [token, setToken] = useState(localStorage.getItem("token") || "");
 
-	// Getting the token collected when connecting from the api
-	async function handleSubmit() {
-		// configures fetch
+	//CHECKING
+	// Getting the token collected when connecting from the api to check whether the user can post
+	async function getInfoProfil() {
+		//get the info from local storage
 		const options = {
-			method: "POST",
+			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
+				Authorization: "bearer " + localStorage.getItem("token"),
 			},
-			body: JSON.stringify({}),
 		};
-
-		// Envoie une requête fetch avec l'URL de l'API et les options définies
 		const response = await fetch(
-			`https://social-network-api.osc-fr1.scalingo.io/gptech-social/login`,
+			// Envoie une requête fetch avec l'URL de l'API et les options définies
+			`https://social-network-api.osc-fr1.scalingo.io/gptech-social/user`,
 			options
 		);
-
-		// getting the data
+		// get the necessary info
 		const data = await response.json();
-		//little check
-		console.log(data);
-
-		// stores the collected info in the local storage
-		localStorage.setItem("token", data.token);
 	}
+	useEffect(() => {
+		getInfoProfil();
+	}, []);
+	console.log(token);
 
 	//POSTING
 	// Posting posts to the api
@@ -47,7 +45,6 @@ function HomeCo() {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
-
 				// to validate token to allow editing
 				Authorization: "bearer " + localStorage.getItem("token"),
 			},
@@ -63,7 +60,6 @@ function HomeCo() {
 		);
 		const data = await response.json();
 		console.log(data);
-		// setArray([...array, data]);
 	}
 
 	// FETCHING
@@ -76,17 +72,20 @@ function HomeCo() {
 				"Content-Type": "application/json",
 			},
 		};
-
 		//using the api to fetch the data
 		let response = await fetch(
 			"https://social-network-api.osc-fr1.scalingo.io/gptech-social/posts?page=0&limit=10",
 			options
 		);
 		let data = await response.json();
-
-		setArray(data.content);
+		console.log(response);
+		setArray(data.title, data.content);
 	}
+	useEffect(() => {
+		listPosts();
+	}, []);
 
+	//some functions for posting
 	function handleInputChange(event) {
 		setInputValue(event.target.value);
 	}
@@ -100,10 +99,6 @@ function HomeCo() {
 		setInputValue("");
 		setInputTitle("");
 	}
-
-	useEffect(() => {
-		listPosts();
-	}, []);
 
 	return (
 		<div className="App">
