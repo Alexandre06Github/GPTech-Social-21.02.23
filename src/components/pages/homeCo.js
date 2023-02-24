@@ -62,15 +62,17 @@ function HomeCo() {
 			options
 		);
 		const data = await response.json();
-		console.log(data);
 	}
 	const renderMyPosts = () => {
 		if (allPosts.length >= 0) {
 			return allPosts.map((item, index) => {
 				return (
 					<div key={index}>
-						<h6>{item.title}</h6>
+						<p>{item.title}</p>
 						<p>{item.content}</p>
+						<button onClick={() => like(item._id)}>like</button>{" "}
+						{/* quand tu clique sur le bouton, ajouter 1 */}
+						<span>{item.likes.length}</span>
 					</div>
 				);
 			});
@@ -79,7 +81,7 @@ function HomeCo() {
 
 	// FETCHING
 	//getting posts from the api
-	async function listPosts() {
+	async function getAllPost() {
 		const options = {
 			method: "GET",
 			headers: {
@@ -93,11 +95,41 @@ function HomeCo() {
 			options
 		);
 		let data = await response.json();
-		console.log(response);
+
 		setArray(data.title, data.content);
 	}
+
+	//displaying likes
+	async function like(postId) {
+		console.log(postId);
+		let options = {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: "bearer " + localStorage.getItem("token"),
+			},
+			body: JSON.stringify({
+				postId: postId,
+			}),
+		};
+		console.log("option", options);
+
+		//Appel Api
+		await fetch(
+			`https://social-network-api.osc-fr1.scalingo.io/gptech-social/post/like`,
+			options
+		)
+			.then((response) => response.json()) // Récupère la réponse au format JSON
+			.then((data) => {
+				if (data.success) {
+					getAllPost();
+				} else {
+					alert(data.message);
+				}
+			}); // Utilise les données renvoyées par l'API
+	}
 	useEffect(() => {
-		listPosts();
+		getAllPost();
 	}, []);
 
 	//some functions for posting

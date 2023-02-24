@@ -4,6 +4,7 @@ import Searchbar from "../navigation/searchbar";
 import Footer from "../navigation/footer";
 import "../../Styles/navStyle.css";
 import robots12 from "../../Images/robots12.jpg";
+import robots13 from "../../Images/robots13.jpeg";
 
 function Error() {
 	return (
@@ -17,6 +18,11 @@ function Error() {
 				<div className="advert">
 					<img
 						src={robots12}
+						alt="advert"
+						className="bot"
+					/>
+					<img
+						src={robots13}
 						alt="advert"
 						className="bot"
 					/>
