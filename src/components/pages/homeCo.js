@@ -17,6 +17,7 @@ function HomeCo() {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 
+	//LIKES
 	//displaying likes
 	async function like(postId) {
 		console.log(postId);
@@ -30,25 +31,25 @@ function HomeCo() {
 				postId: postId,
 			}),
 		};
-		console.log("option", options);
 
-		//Appel Api
+		//Fetching the likes api
 		const response = await fetch(
 			`https://social-network-api.osc-fr1.scalingo.io/gptech-social/post/like`,
 			options
 		);
-		const data = await response.json(); // Récupère la réponse au format JSON
+		//gets the reply in a JSON format
+		const data = await response.json();
 		setFirstName(data.firstname);
-		setLastName(data.lastname).then((response) => response.json()); // Récupère la réponse au format JSON
+		setLastName(data.lastname).then((response) => response.json());
 
+		//if there is a reply from the fetch (posts present), then launch the getallpost function to list the info, else display an alert
 		if (data.success) {
 			getAllPost();
 		} else {
 			alert(data.message);
 		}
-		// Utilise les données renvoyées par l'API
 	}
-
+	//launch the getAllPost function
 	useEffect(() => {
 		getAllPost();
 	}, []);
@@ -191,7 +192,12 @@ function HomeCo() {
 								/>
 							</div>
 						</div>
-						<button type="submit">Poster</button>
+						<button
+							type="submit"
+							className="posterButton"
+						>
+							Poster
+						</button>
 					</form>
 
 					{/* displaying the posts */}
