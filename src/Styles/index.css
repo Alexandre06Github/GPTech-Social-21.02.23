@@ -56,6 +56,10 @@ textarea {
 	height: fit-content;
 }
 
+.textCo {
+margin-right: 2%;
+}
+
 /* NAVBAR */
 .navbar {
 	background-color: #333332;
@@ -100,3 +104,25 @@ button:active {
 h3 {
 	color: #333332;
 }
+
+/* couleur fil d'actu */
+.homeSpace {
+	background-color: white;
+	border: 3px solid #333332;
+	margin-bottom: 4%;
+	margin-top: 2%;
+}
+
+/* couleur fil d'actu */
+.buttonLike {
+border: none;
+background-color: white;
+width: 2vw;
+margin-left: 2%;
+margin-bottom: 1%;
+}
+
+.contenuBloc {
+	margin-left: 2%;
+}
+

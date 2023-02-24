@@ -34,11 +34,11 @@ function Searchbar() {
       </div>
 
       {!localStorage.getItem("token") ? (      // si différent du local storage avec le token
-        <div>
+        <div className="textCo">
           <h5>Vous n'êtes pas connecté</h5>		
         </div>
       ) : (       //    		:     ca revient à dire   else 
-        <div>
+        <div className="textCo">
           <h5>Vous êtes connecté</h5>
         </div>
         
