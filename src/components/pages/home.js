@@ -47,10 +47,12 @@ function Home() {
       return allPosts.map((item, index) => {
         return (
           <div key={index}>
-            <p>{item.title}</p>
-            <p>{item.content}</p>
-            <button onClick={ () => like (item._id) }>like</button>    {/* quand tu clique sur le bouton, ajouter 1 */}
+            <div className="homeSpace">
+            <p className="contenuBloc">{item.title}</p>
+            <p className="contenuBloc">{item.content}</p>
+            <button className="buttonLike" onClick={ () => like (item._id) }>❤️</button>    {/* quand tu clique sur le bouton, ajouter 1 */}
             <span>{item.likes.length}</span>
+            </div>
           </div>
         );
       });
