@@ -7,8 +7,6 @@ import robots1 from "../../Images/robots1.png";
 import robots5 from "../../Images/robots5.jpg";
 import Searchbar from "../navigation/searchbar";
 
-import { useReducer } from "react";
-
 function HomeCo() {
 	//we create a const to handle the file input action
 	const [inputValue, setInputValue] = useState(""); //  ajout tache, we create a table to hold the input of the posts
@@ -16,6 +14,59 @@ function HomeCo() {
 	const [array, setArray] = useState([]); // tableau vide
 	const [token, setToken] = useState(localStorage.getItem("token") || "");
 	const [allPosts, setAllPosts] = useState([]);
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+
+	//displaying likes
+	async function like(postId) {
+		console.log(postId);
+		let options = {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: "bearer " + localStorage.getItem("token"),
+			},
+			body: JSON.stringify({
+				postId: postId,
+			}),
+		};
+		console.log("option", options);
+
+		//Appel Api
+		const response = await fetch(
+			`https://social-network-api.osc-fr1.scalingo.io/gptech-social/post/like`,
+			options
+		);
+		const data = await response.json(); // Récupère la réponse au format JSON
+		setFirstName(data.firstname);
+		setLastName(data.lastname).then((response) => response.json()); // Récupère la réponse au format JSON
+
+		if (data.success) {
+			getAllPost();
+		} else {
+			alert(data.message);
+		}
+		// Utilise les données renvoyées par l'API
+	}
+
+	useEffect(() => {
+		getAllPost();
+	}, []);
+
+	//some functions for posting
+	function handleInputChange(event) {
+		setInputValue(event.target.value);
+	}
+	function handleInputChange2(event) {
+		setInputTitle(event.target.value);
+	}
+
+	function handleSubmit(event) {
+		event.preventDefault();
+		postPosts();
+		setInputValue("");
+		setInputTitle("");
+	}
 
 	//CHECKING
 	// Getting the token collected when connecting from the api to check whether the user can post
@@ -62,17 +113,26 @@ function HomeCo() {
 			options
 		);
 		const data = await response.json();
+		setAllPosts(data.posts);
 	}
+
 	const renderMyPosts = () => {
 		if (allPosts.length >= 0) {
 			return allPosts.map((item, index) => {
 				return (
 					<div key={index}>
-						<p>{item.title}</p>
-						<p>{item.content}</p>
-						<button onClick={() => like(item._id)}>like</button>{" "}
-						{/* quand tu clique sur le bouton, ajouter 1 */}
-						<span>{item.likes.length}</span>
+						<div className="homeSpace">
+							<p className="contenuBloc">{item.title}</p>
+							<p className="contenuBloc">{item.content}</p>
+							<button
+								className="buttonLike"
+								onClick={() => like(item._id)}
+							>
+								❤️
+							</button>{" "}
+							{/* quand tu cliques sur le bouton, ajouter 1 */}
+							<span>{item.likes.length}</span>
+						</div>
 					</div>
 				);
 			});
@@ -96,55 +156,7 @@ function HomeCo() {
 		);
 		let data = await response.json();
 
-		setArray(data.title, data.content);
-	}
-
-	//displaying likes
-	async function like(postId) {
-		console.log(postId);
-		let options = {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: "bearer " + localStorage.getItem("token"),
-			},
-			body: JSON.stringify({
-				postId: postId,
-			}),
-		};
-		console.log("option", options);
-
-		//Appel Api
-		await fetch(
-			`https://social-network-api.osc-fr1.scalingo.io/gptech-social/post/like`,
-			options
-		)
-			.then((response) => response.json()) // Récupère la réponse au format JSON
-			.then((data) => {
-				if (data.success) {
-					getAllPost();
-				} else {
-					alert(data.message);
-				}
-			}); // Utilise les données renvoyées par l'API
-	}
-	useEffect(() => {
-		getAllPost();
-	}, []);
-
-	//some functions for posting
-	function handleInputChange(event) {
-		setInputValue(event.target.value);
-	}
-	function handleInputChange2(event) {
-		setInputTitle(event.target.value);
-	}
-
-	function handleSubmit(event) {
-		event.preventDefault();
-		postPosts();
-		setInputValue("");
-		setInputTitle("");
+		setAllPosts(data.posts);
 	}
 
 	return (
