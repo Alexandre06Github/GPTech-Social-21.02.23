@@ -39,9 +39,6 @@
 .go {
 	text-align: center;
 }
-.input {
-	margin-left: 2vw;
-}
 .display {
 	background-color: white;
 	padding-left: 2vw;
@@ -51,6 +48,8 @@
 }
 input {
 	border-color: #333332;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
 }
 a:-webkit-any-link {
 	text-decoration: none;
