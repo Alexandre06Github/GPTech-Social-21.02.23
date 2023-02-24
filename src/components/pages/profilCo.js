@@ -101,7 +101,7 @@ function ProfilCo() {
 			<div className="homeBody">
 				<Navbar />
 
-				{isEditing == false ? (
+				{isEditing === false ? (
 					<div className="container">
 						<h1 className="pageTitle">Informations profil</h1>
 						<div
@@ -150,7 +150,7 @@ function ProfilCo() {
 						<button onClick={handleEditClick}>Modifier</button>{" "}
 						{/* fonction quand tu cliques sur modifier */}
 					</div>
-				) : isEditing == true ? (
+				) : isEditing === true ? (
 					<div className="container">
 						<h1 className="pageTitle">Informations profil</h1>
 
