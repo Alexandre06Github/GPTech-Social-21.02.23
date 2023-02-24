@@ -1,4 +1,3 @@
-import { cleanup } from "@testing-library/react";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../Styles/index.css";
