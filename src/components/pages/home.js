@@ -7,6 +7,9 @@ import robots5 from "../../Images/robots5.jpg";
 import Searchbar from "../navigation/searchbar";
 
 function Home() {
+ const [allPosts, setAllPosts] = useState ("")
+ 
+
 	async function like(postId) {
 		console.log(postId);
 		let options = {
@@ -76,7 +79,7 @@ function Home() {
 			options
 		);
 		let data = await response.json(); // Récupère la réponse au format JSON
-		setArray(data.title, data.content);
+		setAllPosts(data.title, data.content);
 
 		console.log(data.posts); // Utilise les données renvoyées par l'API
 	}
