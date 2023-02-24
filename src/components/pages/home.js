@@ -10,6 +10,9 @@ import Searchbar from "../navigation/searchbar";
 function Home() {
 
   const [allPosts, setAllPosts] = useState([]);
+  const [username, setUsername] = useState("");
+
+
 
   async function like (postId) {
     console.log(postId)
@@ -39,6 +42,7 @@ function Home() {
         }
       }); // Utilise les données renvoyées par l'API
   };
+  
 
 
 
@@ -65,6 +69,7 @@ function Home() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "bearer " + localStorage.getItem("token"),
       },
     };
 
@@ -90,6 +95,7 @@ function Home() {
       <div className="homeBody">
         {/* section on the left */}
         <Navbar />
+        
 
         {/* MIDDLE POST  */}
         <div className="container">
