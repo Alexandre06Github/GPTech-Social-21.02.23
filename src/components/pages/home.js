@@ -10,10 +10,7 @@ import Searchbar from "../navigation/searchbar";
 function Home() {
 
   const [allPosts, setAllPosts] = useState([]);
-  const [firstName, setFirstName] = useState("");        ///////////
-  const [lastName, setLastName] = useState("");         ///////////
-
-
+ 
   async function like (postId) {
     console.log(postId)
     let options = {
