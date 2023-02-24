@@ -13,7 +13,6 @@ function Connection() {
 	const [password, setPassword] = useState(
 		localStorage.getItem("password") || ""
 	);
-	const [token, setToken] = useState(localStorage.getItem("token") || "");
 	const navigate = useNavigate(); // const pour rediriger vers une page
 
 	// Cette fonction sera appelée lorsque l'utilisateur cliquera sur le bouton "Valider"
