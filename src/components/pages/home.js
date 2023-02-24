@@ -6,25 +6,39 @@ import robots1 from "../../Images/robots1.png";
 import robots5 from "../../Images/robots5.jpg";
 import Searchbar from "../navigation/searchbar";
 
-import { useReducer } from "react";
 
 function Home() {
+
   const [allPosts, setAllPosts] = useState([]);
-  const [count, updateCount] = useReducer(countReducer, 0);
 
+  async function like (postId) {
+    console.log(postId)
+    let options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "bearer " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        postId: postId
+      }),
+    };
+    console.log("option", options);
 
-  function countReducer(state, action) {
-    if (action === "incrementation") {
-      return state + 1;
-    } else {
-      throw new Error();
-    }
-  }
-
-
-
-
-
+    //Appel Api
+    await fetch(
+      `https://social-network-api.osc-fr1.scalingo.io/gptech-social/post/like`,
+      options
+    )
+      .then((response) => response.json()) // Récupère la réponse au format JSON
+      .then((data) => {
+        if (data.success) {
+          getAllPost()
+        } else {
+          alert(data.message);
+        }
+      }); // Utilise les données renvoyées par l'API
+  };
 
 
 
@@ -35,17 +49,17 @@ function Home() {
           <div key={index}>
             <p>{item.title}</p>
             <p>{item.content}</p>
-            <button>like</button>
+            <button onClick={ () => like (item._id) }>like</button>    {/* quand tu clique sur le bouton, ajouter 1 */}
+            <span>{item.likes.length}</span>
           </div>
         );
       });
     }
   };
-  // permet de changer ma variable d'état grace à mon input
 
-  async function getAllPost() {
-    // Fonction pour récupérer les informations de l'utilisateur
-    const options = {
+  async function getAllPost() {        // permet de changer ma variable d'état grace à mon input
+
+    const options = {         // Fonction pour récupérer les informations de l'utilisateur
       method: "GET",
       headers: {
         "Content-Type": "application/json",
