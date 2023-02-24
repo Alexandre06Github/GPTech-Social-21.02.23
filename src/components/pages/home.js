@@ -10,8 +10,8 @@ import Searchbar from "../navigation/searchbar";
 function Home() {
 
   const [allPosts, setAllPosts] = useState([]);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("");        ///////////
+  const [lastName, setLastName] = useState("");         ///////////
 
 
   async function like (postId) {
@@ -23,20 +23,16 @@ function Home() {
         Authorization: "bearer " + localStorage.getItem("token"),
       },
       body: JSON.stringify({
-        postId: postId
+      postId: postId
       }),
     };
     console.log("option", options);
 
     //Appel Api
-    const response = await fetch(
+    await fetch(
       `https://social-network-api.osc-fr1.scalingo.io/gptech-social/post/like`,
       options
     )
-
-    const data = await response.json(); // Récupère la réponse au format JSON
-    setFirstName(data.firstname)
-    setLastName(data.lastname)
     
       .then((response) => response.json()) // Récupère la réponse au format JSON
       .then((data) => {
