@@ -10,8 +10,8 @@ import Searchbar from "../navigation/searchbar";
 function Home() {
 
   const [allPosts, setAllPosts] = useState([]);
-  const [username, setUsername] = useState("");
-
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
 
 
   async function like (postId) {
@@ -29,10 +29,15 @@ function Home() {
     console.log("option", options);
 
     //Appel Api
-    await fetch(
+    const response = await fetch(
       `https://social-network-api.osc-fr1.scalingo.io/gptech-social/post/like`,
       options
     )
+
+    const data = await response.json(); // Récupère la réponse au format JSON
+		setFirstName(data.firstname)
+		setLastName(data.lastname)
+    
       .then((response) => response.json()) // Récupère la réponse au format JSON
       .then((data) => {
         if (data.success) {
@@ -40,6 +45,7 @@ function Home() {
         } else {
           alert(data.message);
         }
+        
       }); // Utilise les données renvoyées par l'API
   };
   
