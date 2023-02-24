@@ -12,6 +12,33 @@ function HomeCo() {
 	const [inputValue, setInputValue] = useState(""); //  ajout tache, we create a table to hold the input of the posts
 	const [inputTitle, setInputTitle] = useState("");
 	const [array, setArray] = useState([]); // tableau vide
+	const [token, setToken] = useState(localStorage.getItem("token") || "");
+
+	// Getting the token collected when connecting from the api
+	async function handleSubmit() {
+		// configures fetch
+		const options = {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({}),
+		};
+
+		// Envoie une requête fetch avec l'URL de l'API et les options définies
+		const response = await fetch(
+			`https://social-network-api.osc-fr1.scalingo.io/gptech-social/login`,
+			options
+		);
+
+		// getting the data
+		const data = await response.json();
+		//little check
+		console.log(data);
+
+		// stores the collected info in the local storage
+		localStorage.setItem("token", data.token);
+	}
 
 	//POSTING
 	// Posting posts to the api
@@ -20,9 +47,10 @@ function HomeCo() {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
+
+				// to validate token to allow editing
+				Authorization: "bearer " + localStorage.getItem("token"),
 			},
-			// to validate token to allow editing
-			Authorization: "bearer {token}",
 			//get the data in the right format
 			body: JSON.stringify({
 				title: inputTitle,
@@ -34,7 +62,8 @@ function HomeCo() {
 			options
 		);
 		const data = await response.json();
-		setArray([...array, data]);
+		console.log(data);
+		// setArray([...array, data]);
 	}
 
 	// FETCHING
