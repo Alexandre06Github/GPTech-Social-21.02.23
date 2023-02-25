@@ -111,6 +111,7 @@ textarea {
 	padding-top: 3vh;	
 }
 
+
 /* S IDENTIFIER */
 .middle {
 	display: flex;
@@ -136,6 +137,7 @@ button {
 	text-decoration: none;
 	color: #333332;
 	border-radius: 15px;
+	margin-bottom: 1%;
 }
 button:active {
 	background-color: #333332;
