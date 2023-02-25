@@ -147,7 +147,7 @@ function ProfilCo() {
 							<label htmlFor="">Emploi : </label> {/* afficher le Travail */}
 							<div className="form-control">{occupation}</div>
 						</div>
-						<button onClick={handleEditClick}>Modifier</button>{" "}
+						<button className="buttonToChangeValid" onClick={handleEditClick}>Modifier</button>{" "}
 						{/* fonction quand tu cliques sur modifier */}
 					</div>
 				) : isEditing === true ? (
@@ -231,7 +231,7 @@ function ProfilCo() {
 												className="form-control"
 											/>
 										</div>
-										<button onClick={handleEditClick}>Valider</button>{" "}
+										<button className="buttonToChangeValid" onClick={handleEditClick}>Valider</button>{" "}
 										{/* fonction quand tu cliques sur modifier */}
 									</div>
 								</div>

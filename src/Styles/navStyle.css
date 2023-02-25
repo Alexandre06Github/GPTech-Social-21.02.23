@@ -72,5 +72,7 @@ h5 {
 	padding-right: 10px;
 }
 .posterButton {
-	margin-bottom: 2vh;
+	margin-bottom: 8vh;
+	margin-left: 28vw;
+	border-radius: 10px;
 }
