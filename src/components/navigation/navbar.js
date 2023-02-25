@@ -17,11 +17,10 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navButtons">
-
-        <button className="bloc1"><Link to="/">Accueil</Link></button>
 		
         {token ? (    // si présence du token, afficher Profil et déconnection
           <>
+		  <button className="bloc1"><Link to="/home">Accueil</Link></button>
 		  <div className="blocConnect">
             <button className="bloc1"><Link to="/profil">Profil</Link></button>
             <button onClick={handleSubmit} className="buttonDeco">Déconnexion</button>
@@ -29,6 +28,7 @@ function Navbar() {
           </>
         ) : (
           <>
+		   <button className="bloc1"><Link to="/">Accueil</Link></button>
 		  <div className="blocNoConnect">
             <button className="bloc1"><Link to="/register" className="bloc1">Inscription</Link></button>
             <button className="bloc1"><Link to="/connection" className="bloc1">Se connecter</Link></button>
