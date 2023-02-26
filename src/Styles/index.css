@@ -32,7 +32,6 @@ textarea {
 	margin-top: 3vh;
 	margin-left: 30vw;
 	border-radius: 10px;
-	
 }
 
 /* SEARCHBAR */
@@ -41,7 +40,6 @@ textarea {
 	background-color: #333332;
 	justify-content: space-between;
 	align-items: center;
-	
 }
 .gptech {
 	display: flex;
@@ -62,23 +60,6 @@ textarea {
 .inputSearch {
 	width: 20vw;
 	height: fit-content;
-}
-
-.textConnect {
-	margin-right: 2%;
-    background: green;
-    border: 5px solid green;
-    border-radius: 50px;
-    padding-left: 1vh;
-}
-
-.textNotConnect {
-	margin-right: 2%;
-    background: red;
-    border: 5px solid red;
-    border-radius: 50px;
-    padding-left: 1vh;
-	margin-left: -3vw;
 }
 
 /* NAVBAR */
@@ -108,9 +89,8 @@ textarea {
 	flex-direction: column;
 	align-items: center;
 	row-gap: 5px;
-	padding-top: 3vh;	
+	padding-top: 3vh;
 }
-
 
 /* S IDENTIFIER */
 .middle {
@@ -125,8 +105,7 @@ textarea {
 .buttonValider {
 	padding-top: 4%;
 	display: flex;
-    justify-content: end;
-    
+	justify-content: end;
 }
 button {
 	width: 12vw;
@@ -158,14 +137,13 @@ h3 {
 
 /* couleur fil d'actu */
 .buttonLike {
-border: none;
-background-color: white;
-width: 2vw;
-margin-left: 2%;
-margin-bottom: 1%;
+	border: none;
+	background-color: white;
+	width: 2vw;
+	margin-left: 2%;
+	margin-bottom: 1%;
 }
 
 .contenuBloc {
 	margin-left: 2%;
 }
-
