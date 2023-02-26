@@ -10,7 +10,7 @@ import Searchbar from "../navigation/searchbar";
 function HomeCo() {
 	//we create a const to handle the file input action
 	const [inputValue, setInputValue] = useState(""); //  ajout tache, we create a table to hold the input of the posts
-	const [inputTitle, setInputTitle] = useState("");
+	const [inputTitle, setInputTitle] = useState(""); // titles of the posts
 	const [array, setArray] = useState([]); // tableau vide
 	const [token, setToken] = useState(localStorage.getItem("token") || "");
 	const [allPosts, setAllPosts] = useState([]);
@@ -20,11 +20,11 @@ function HomeCo() {
 	//LIKES
 	//displaying likes
 	async function like(postId) {
-		console.log(postId);
 		let options = {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
+				//verifying the token is authorized (tokens are saved in the local storage)
 				Authorization: "bearer " + localStorage.getItem("token"),
 			},
 			body: JSON.stringify({
@@ -32,7 +32,7 @@ function HomeCo() {
 			}),
 		};
 
-		//Fetching the likes api
+		//Fetching the likes with the api
 		const response = await fetch(
 			`https://social-network-api.osc-fr1.scalingo.io/gptech-social/post/like`,
 			options
@@ -40,7 +40,7 @@ function HomeCo() {
 		//gets the reply in a JSON format
 		const data = await response.json();
 		setFirstName(data.firstname);
-		setLastName(data.lastname).then((response) => response.json());
+		setLastName(data.lastname);
 
 		//if there is a reply from the fetch (posts present), then launch the getallpost function to list the info, else display an alert
 		if (data.success) {
@@ -54,14 +54,13 @@ function HomeCo() {
 		getAllPost();
 	}, []);
 
-	//some functions for posting
+	//Functions for posting
 	function handleInputChange(event) {
 		setInputValue(event.target.value);
 	}
 	function handleInputChange2(event) {
 		setInputTitle(event.target.value);
 	}
-
 	function handleSubmit(event) {
 		event.preventDefault();
 		postPosts();
@@ -69,7 +68,7 @@ function HomeCo() {
 		setInputTitle("");
 	}
 
-	//CHECKING
+	//CHECKING AUTHORISATION
 	// Getting the token collected when connecting from the api to check whether the user can post
 	async function getInfoProfil() {
 		//get the info from local storage
@@ -91,7 +90,6 @@ function HomeCo() {
 	useEffect(() => {
 		getInfoProfil();
 	}, []);
-	console.log(token);
 
 	//POSTING
 	// Posting posts to the api
@@ -117,27 +115,29 @@ function HomeCo() {
 		setAllPosts(data.posts);
 	}
 
+	//displays the comments with the name of the author and the likes
 	const renderMyPosts = () => {
-		if (allPosts.length >= 0) {
-			return allPosts.map((item, index) => {
-				return (
-					<div key={index}>
-						<div className="homeSpace">
-							<p className="contenuBloc">{item.title}</p>
-							<p className="contenuBloc">{item.content}</p>
-							<button
-								className="buttonLike"
-								onClick={() => like(item._id)}
-							>
-								❤️
-							</button>{" "}
-							{/* quand tu cliques sur le bouton, ajouter 1 */}
-							<span>{item.likes.length}</span>
-						</div>
+		return allPosts.map((item, index) => {
+			return (
+				<div key={index}>
+					<div className="homeSpace">
+						<p className="contenuBloc">{item.title}</p>
+						<p className="contenuBloc">{item.content}</p>
+						<p className="author">
+							{item.firstname} {item.lastname}
+						</p>
+						<button
+							className="buttonLike"
+							onClick={() => like(item._id)}
+						>
+							❤️
+						</button>{" "}
+						{/* quand tu cliques sur le bouton, ajouter 1 */}
+						<span>{item.likes.length}</span>
 					</div>
-				);
-			});
-		}
+				</div>
+			);
+		});
 	};
 
 	// FETCHING
