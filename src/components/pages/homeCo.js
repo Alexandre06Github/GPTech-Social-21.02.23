@@ -112,8 +112,8 @@ function HomeCo() {
 			options
 		);
 		const data = await response.json();
-		setAllPosts(data.posts);
 	}
+	
 
 	//displays the comments with the name of the author and the likes
 	const renderMyPosts = () => {
