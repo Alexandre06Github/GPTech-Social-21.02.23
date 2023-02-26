@@ -196,7 +196,7 @@ function HomeCo() {
 							</div>
 						</div>
 						<button
-							type="submit"
+							type="submit" onClick={handleSubmit}
 							className="posterButton"
 						>
 							Poster
