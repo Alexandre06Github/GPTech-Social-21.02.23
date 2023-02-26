@@ -95,24 +95,27 @@ function HomeCo() {
 	// Posting posts to the api
 	async function postPosts() {
 		const options = {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				// to validate token to allow editing
-				Authorization: "bearer " + localStorage.getItem("token"),
-			},
-			//get the data in the right format
-			body: JSON.stringify({
-				title: inputTitle,
-				content: inputValue,
-			}),
+		  method: "POST",
+		  headers: {
+			"Content-Type": "application/json",
+			Authorization: "bearer " + localStorage.getItem("token"),
+		  },
+		  body: JSON.stringify({
+			title: inputTitle,
+			content: inputValue,
+		  }),
 		};
 		const response = await fetch(
-			"https://social-network-api.osc-fr1.scalingo.io/gptech-social/post",
-			options
+		  "https://social-network-api.osc-fr1.scalingo.io/gptech-social/post",
+		  options
 		);
 		const data = await response.json();
-	}
+		if (data.success) {
+		  getAllPost();
+		} else {
+		  alert(data.message);
+		}
+	  }
 	
 
 	//displays the comments with the name of the author and the likes
